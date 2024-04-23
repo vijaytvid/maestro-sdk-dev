@@ -1,0 +1,584 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* =================================Start of font family ============================= */
+
+@font-face {
+  font-family: "Manrope-Regular";
+  src: url("../resources/fonts/Manrope-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Manrope-Medium";
+  src: url("../resources/fonts/Manrope-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Manrope-Bold";
+  src: url("../resources/fonts/Manrope-Bold.ttf") format("truetype");
+}
+
+/* =================================End of font family ============================= */
+
+/* =================================Start of Splash Screen ============================= */
+
+.splash-screen-container {
+  display: block;
+}
+
+.splash-screen {
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-screen img {
+  width: 50%;
+  height: auto;
+}
+
+/* =================================End of Splash Screen ============================= */
+
+/* =================================Start of loader container ============================= */
+
+.loader_container {
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: #12141a;
+}
+
+.loader {
+  margin: 100px auto;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  animation: rotate 2s infinite linear;
+}
+
+.circle_loader {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border: 10px solid rgba(0, 0, 0, 0.1); /* Light border */
+  border-top-color: #7566ff; /* Main color */
+  animation: spin 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================================End of loader container ============================= */
+
+/* =================================Start of Common classes ============================= */
+
+.row_heading {
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0 4rem;
+}
+
+/* =================================End of Common classes ============================= */
+
+/* =================================Start of sidebar-container Screen ============================= */
+
+.sidebar-container {
+  width: 110px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  float: left;
+  position: fixed;
+  background-color: #14141f;
+  padding: 20px;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Logo styles */
+.logo {
+  text-align: center;
+}
+
+.logo li {
+  margin: 1.5rem 0;
+}
+.logo li img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Menu styles */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 12px;
+}
+
+.menu li {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu li svg {
+  fill: #9da0a6;
+  width: 40px;
+  height: 40px;
+}
+
+.menu li h3 {
+  display: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  position: fixed;
+  margin: 0.4rem 0 0rem 4rem;
+}
+
+.toggle_menu .menu li h3 {
+  display: block !important;
+}
+
+/* Settings styles */
+.settings {
+  position: relative;
+}
+
+/* =================================End of sidebar-container Screen ============================= */
+
+/* =================================Start of Main container Screen ============================= */
+
+.main-container {
+  width: calc(100vw - 110px);
+  height: 100vh;
+  float: right;
+  right: 0;
+}
+
+/* =================================End of Main container Screen ============================= */
+
+/* =================================Start of Home Screen CSS ============================= */
+
+.maestro-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: inherit;
+  overflow: hidden;
+  background-color: #14141f;
+}
+
+.home-container,
+.video-player-container {
+  display: none;
+}
+
+.home-container {
+  width: 100%;
+  display: block;
+}
+
+.header-container {
+  width: 100%;
+  height: 140px;
+}
+
+.header-section {
+  position: fixed;
+  width: 100%;
+  height: 152px;
+  top: 0;
+  left: 0;
+  background-color: #14141f;
+}
+
+.header-navigation {
+  color: #ffffff;
+}
+
+.header-navigation .nav-item {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  width: 12rem;
+}
+
+.nav-item:focus {
+  background-color: #6c5cf3;
+  border-radius: 2rem;
+}
+
+.home-screen-section {
+  margin-top: 152px;
+}
+/* Start of banner CSS */
+.banner-container {
+  width: 100%;
+  height: 760px;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-container .col-sm-12 {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  color: white;
+  padding: 10px;
+  width: 50%;
+  height: 23%;
+}
+
+.banner-button {
+  width: 10rem;
+  height: 3rem;
+  margin: 0.4rem 0.8rem;
+  transition: transform 0.3s ease;
+}
+.text-banner-container .col-sm-12:focus .banner-button {
+  transform: scale(1.1);
+}
+
+/* End od banner CSS */
+
+/* Start of image gallery CSS  */
+
+.item-container {
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+.item-container .col-sm-3 {
+  width: 400px;
+  height: 300px;
+  margin: 0.2rem 2.5rem;
+  color: #ffffff;
+  padding: 0.6rem;
+}
+
+.item-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.image-gallery-item {
+  border: 4px solid transparent;
+}
+
+.image-gallery-item:focus {
+  border: 4px solid #ffffff;
+}
+
+/* End of image gallery CSS  */
+
+/* Start of text banner CSS  */
+
+.page-row-item {
+  border: 4px solid transparent;
+  display: grid;
+  place-items: center;
+  align-items: center;
+  background: linear-gradient(-36deg, #12141a 50%, #1b1e26 50%);
+  border-radius: 4.5px;
+  border: none;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.page-row-item:focus {
+  border: 4px solid #ffffff;
+}
+
+/* End of image gallery CSS  */
+
+/* Start of text banner CSS  */
+.text-banner-overlay {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  width: 50%;
+  height: 554px;
+  text-align: center;
+  /* padding: 100px 200px 100px 200px; */
+  /* background-color: #000000; */
+  /* place-content: center;
+  place-items: center;
+  display: grid; */
+  padding: 200px 0;
+  float: left;
+  text-align: left;
+}
+
+/* End of text banner CSS  */
+/* Start of video spot light CSS  */
+
+.videoSpotlight-container:first-child {
+  position: relative;
+  padding: 0 20px;
+  display: list-item;
+}
+.videospotlight-text-box {
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: block;
+  height: auto;
+  text-align: left;
+}
+
+.videospotlight-text-box h3 {
+  margin: 0.6rem 0.2rem;
+}
+.image-wrapper {
+  width: 85%;
+  position: relative;
+  padding: 20px;
+  display: inline-block;
+}
+.videospotlight-text-box:nth-child(2) {
+  font-size: 1.6rem;
+}
+.videoSpotlight-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.videoSpotlight-container .col-sm-12:focus .spotlight-image {
+  transform: scale(1.1);
+}
+/* End of video spot light CSS  */
+
+/* Start of Image And Text CSS  */
+
+.text-image-wrapper {
+  width: 85%;
+  height: 22rem;
+  position: relative;
+  padding: 20px;
+  display: inline-block;
+  background-color: #242438;
+  border-radius: 10px;
+}
+
+.image-text-box {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 8px 0;
+}
+.imagetext-container .col-sm-12:focus .banner-button {
+  transform: scale(1.1);
+}
+
+/* End of Image And Text CSS  */
+
+/* Start of video player CSS  */
+.video-player-section {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+.video-player-container {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+}
+.video-player {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+/* End of video player CSS  */

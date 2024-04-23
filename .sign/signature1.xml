@@ -1,0 +1,465 @@
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="DistributorSignature">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
+<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"></SignatureMethod>
+<Reference URI="AUTHORS">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>quFVIY21+TBnE0PlPc6dDwllRvMOIO+L6iNmr2NHBVfpAQk3xN23OGwHV5vcLJzxOfZ9C+32/g06
++sBjb2hYOw==</DigestValue>
+</Reference>
+<Reference URI="LICENSE.Flora">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>eMZs49Zoyv8pka7rh1hDfAR9c0J1Mc3Go+Yd/8y3382XiW4+49kRz7KJzjH959FGl3xkQZDNDYWt
+3juskmdDvg==</DigestValue>
+</Reference>
+<Reference URI="NOTICE">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>6R2XTNsDCKoqH5wUr+gWDc4Fk6sDBYTdubXgZ/fXy6GFuHpRM/cewjZBdvYckJd47pCsTFMgpRX1
+UOFkMrvkjg==</DigestValue>
+</Reference>
+<Reference URI="assets%2Fsplash.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>U58+USqR8Kfw3g4HeydjUyutocuGPQp6K7RLrU75H5rT/JhZTYr+hqxS9QBnt6r3W53IgcT3r+zS
+/9epZoqQ7g==</DigestValue>
+</Reference>
+<Reference URI="assets%2Fsplash_hd.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>U58+USqR8Kfw3g4HeydjUyutocuGPQp6K7RLrU75H5rT/JhZTYr+hqxS9QBnt6r3W53IgcT3r+zS
+/9epZoqQ7g==</DigestValue>
+</Reference>
+<Reference URI="assets%2Fsplash_sd.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>U58+USqR8Kfw3g4HeydjUyutocuGPQp6K7RLrU75H5rT/JhZTYr+hqxS9QBnt6r3W53IgcT3r+zS
+/9epZoqQ7g==</DigestValue>
+</Reference>
+<Reference URI="author-signature.xml">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>V90bykTRJRDKlf7RAwFERFJRFfkeWDHx+Mj/GO702X0DqMDQyrEe4mQwAPbA7oSIG746wfPPDybS
+7xojbklOsQ==</DigestValue>
+</Reference>
+<Reference URI="config.xml">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>abUf3MdxvtiqmLuVZUYR178vKucM8599U1/pTFRwNODOhmsJvnzaKVi1WlWlkCmW/nks5KuIHI+D
+bJhy5+cgPQ==</DigestValue>
+</Reference>
+<Reference URI="css%2Fstyle.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>Woj3hIecpPiM56lLW1j1mIvM9rxCYNZFR3LRTYPayKgeG1H+Xylb/G/x6ISRYk2wLW7RFHOesUbd
+KHNe58uV9g==</DigestValue>
+</Reference>
+<Reference URI="icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>GKaAX2XA1x2ytXpunzpCzpNiM6szLhEWk+UyKGzAgx6iEs49HNlzLVsTXm2dYiWvEZiiTMz2U6lh
+WCLpOpkL0w==</DigestValue>
+</Reference>
+<Reference URI="icon_400x400.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>o+asfdClmQepNC0qPzcvoxcXB8BfKQzGgPlDniEQh6dA1L5MjKA55oq56uTUmZfF7iJw6y8Q2HKq
+Jho9lToRRA==</DigestValue>
+</Reference>
+<Reference URI="icon_512x512.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>BTWH5gR47jXe6bti9vXnjPRGnv+Mr82iTxKf6egTF3nyE2w5aWqM5c4ZQFTgZ8yFmJniyQtIKxM4
+Ov0vriJyCg==</DigestValue>
+</Reference>
+<Reference URI="index.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>BeGlhWdq4SSCTipyLYFp4fJPWBY/JeY7csl6NmvWjysm3/c+kBN/dhCXG3kjFyoJ3WLoEe6Hn1To
+Qumlu2Fa2g==</DigestValue>
+</Reference>
+<Reference URI="js%2Fmain.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>ZouGwDbZdxG1SnbpNwJtqVRAfCiH5YJTXwAKa5lBKRLxKsYuGPp429Ik5pMBI3Nyh55WfXxnHtSQ
+bAg5ogZn5w==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fcss%2Fmain.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>s6jEwSDK39OOIYRSTf831SggdAHNorXO6GNOch6JBZCAXCfSul5gEHuKVzfJuRs4GtqzvPl71HEo
+O4MH96XsPQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.api.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>Ukvfs2mSR4DyP2JFSKfm1rNyqrwEg8mKdOGlu3w9VpUnCgbFP7rXv1ljqzjLqjV3xQqmmfS+smAP
+31rpRLDHqg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.common-navigation.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>/o4HtEnLiRcxg3Htji1eoc5eoCbYntWk34w6sEFkT9ndlDB7DQn0LXKpdvHd55vI/U3yXc+NxQ50
+hBQn4xFWJw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.config.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>JZeUsomyNAA57UE9BsCwb5T+hLZ10xzfAmWNxb2nFAkabmiExiSdh88AfHPNWcP9isUd6AC1eZxA
+SkdKKavj8A==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.home.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>5SHQTIDcMfElp8PpIxEmoJnx3lNKTfZu14jV/vXuid/AnvQaXVGvFaRkrKX6oY3uGq4K8SWGq8wr
+mZb+QWs/bw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.main.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>cLnF8RuCiS8OUkuxBY/j49tgYpBBtawCGJp7SmIoqBJ4LJHCl8qUmb/9kk2l+OlbyYXNeuZ2wbtO
+1toXE42ngg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.remote-navigation.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>f1sUxPi26zREZMnPaidqaNgJB3nkT8nWvvcmAVAwFNbAtF7jdazeTY1QgpSut0XecJG27+bKxFT1
+4OmQ3QQAvQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.video-player.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>ti2Bei/+GY9ew6TU9893JKeeQnNtshqU5/oEDz+eiwgY0nYrjxImX5yjJYNvkY4d0bqycNVXm8KU
+j9Gk0rsJxg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>FWvWEUXo1aZLd1H8JcDIlvrIRM0Zuv9WN+LzkNP+VeRlAhHwGkqXRzlfl/0qBeguno9leqm/8Qef
+yJn2OvVaEQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>7rc/vYdosqGR63YebgclOLyqNy3vcMcEkuIC/11WhHx91770T8JrT6icpN+jQi0JBRvXxE48k4x4
+w5YyJcenoA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>LLxZHu50SXdFJdAzHmDJAoLaozhTB4BYZPoN+xdTRjiPmPhI+1mEJXdoHHiDWmd/jj/9x10pkd8m
+YGG9sqfPPA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>2rVE7lF/VaqqFFMNEFqbYnRvxxIr79Uc32wvpWlDR1l3Dsi+ZUQPXovUOleXHGywANdow6yYpHAg
+upt3zgJkpQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.rtl.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>9IUQCstsVVXvo8QKvoj7SW8g8CHl3MiOPLcr02cypZYABwSzRY34v2kBkwHUsieYF+Ub3qufWvVF
+8RacnQXvVQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.rtl.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>2mgywfPxa1b622UkCPOhWbADQyAKleoVn6VuFAZ4BJ1ca8XEz619WGD7e0eqo2OxlF8h+pRm30/y
+YL0NmzW1rQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.rtl.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>TCrcLtSAYsU4kCde+SFSL1rct7am3i98+CDOVQSmk8qMCm1A2RybVEptNlFPYlGYOvZ14FsfwoHn
+7SYiqJtM7g==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.rtl.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>KlSvTrH99kakGMqpa1f5lt3RjN8T8jdQTX7eZVqQbFE76FQD3tftQuhNAW/IxJE7AcmOGjha/2lq
+ugd42tIxVg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>1Xcr6ZkjYLqcKi6YVevd5MiJDxNe5QaKBBaNIw2EEy7X9kcMvYJWh8HmcMPY5OOl7Y9Yr/csg7Zn
+l05dOmyteA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>yKT+t7oMzTcVaEwjKq2rofaBSRo8R+MUHaqXCnBcD4o+492MKrFXLI5hkn57zp64nud4hG9qhAdc
+/NA4hDdtoA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>3qb5bclFXm56+XgqPRuD93Wxs84ZiFvfS0/yOxd66bMCw9jmW8ajv8F6fQPC968CV3sx0uWGjz3H
+HcXv6oWKMg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>gy1BIvlnWe06mKjcJqMNMW7YzGLIR78dJQ3diBM9eMyhUw5n8XkrzXSbB8nFwb+0sRW6iomdjZwN
+VfdwaamJfQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.rtl.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>fnhdxKQqypOZEppvasLb8WqPUa0MxAWbioHk/G+AtWm5HvcFXo5qi2L/zc4LcT87GKENmipF/8Hs
+v6EZlnWLxg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.rtl.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>HAnioQTJiCHBoNZA32XTLXPrrN4oNg77b1nIRiydidTAgg74fhtQompeKuwJvL99QafLirPTigBg
+OwUFLJR17w==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.rtl.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>YYyFsWg/EEyF3wJbLT9mhIJm99hTrll0bost/xoEDeQr1uFeCqjvb+UbqO1r01wqPn73T5DF7SDF
+F27rbrScWQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-reboot.rtl.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>x5jU+M44qQR9g6qz0814B+KUBplpatfvx2ZJAb6fyE87ILw+MOZSJym+Q+4T6qkJ0cJKeNGqiTOe
+VdfE+rQG1A==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>7lZ/s1G2BRWmgfk8bOamuJrHqHk06GZGCqZVN8YuYDGzZQq2//sTJPKP/Nqqw92VyqOxvLpZm3u/
+G8mDXDS3NA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>RmlBfW9zLaOXDXuWpskzTd9E8lhfFWc2uMrPjVJHjhNxg/dxJvP6KMuPlGIrnDDhyCUbG/PwJnPd
+f+GaGPC+hg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>RedJTewoAggJO3Tss7j9iJUd0Pd03mq1fSEwYdk+pWkbqqSyfKtZmTywz92E0Fiq8bxxID2mPjCJ
+PUn+YmlKrA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>w91PafBp8krgB97TvIx8JnkcJH1uwuc6IJDC+xb8XeOtWTlXs7/b69f3DokGZRJ2RFJo5pqgxzwu
+ct8t1+XOyQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.rtl.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>t4PYf+/7BypoNAnxP5ekpZAUG+jHdLGHiWQNur4LYdAO7D3yyi/IlT2UNzNX7oTPvUwShjpDj5kG
+//FzkTsEaA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.rtl.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>Z8GmaeazRvErEe+cJ6oACZ90nLTNSgTwsT4H0KbaI6eWzqT0KvdyienAHlrR7ReATNhyqJdSLkKC
+OChXTzkCsw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.rtl.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>ZKR6g1WWqoGFhMMF343YwTN1njjL/WGYG8TU4mbX49rJPoRsYXbZewdQQsgulvofhkDs7ghEuf/9
+Mv/oV7Ktsw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-utilities.rtl.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>OdeAvbkpMtO1M8bk7jmgdZL9vJIRn1fReTbycUhNJghJ+GKIv9SMz1fpTskkicDNp1Rt8G4skPJP
+rH+r79g4Rg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>9LMt8yHSTC2NNj7wxs1u0wfc8JsHPz2IO3hPj5ZOVhM60uMHDhWxEzO+Yz9wBCJRoMa4UHItzgdw
+W4ZxVG2O4g==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>TtjAV28Dd0glNJ6voMaQ5OIcKrgMY2JUJoUSMv7dCK5keI/bebJWkGKOaw3b0GPm5UCBW110Joco
+iIZU9TT2Bw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9W
+snujJuOmBA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>U4I2eiQ7/WS96J7Bhbt0XwWjLlDlSMNci+Ghdamyp+q1XA5vh+Hw9cSiYYTfFAqUomADwUDg4LyW
+QvTd+iw9Iw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.rtl.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>0i77zz+oEarTTVhreQ/yV4dEReoxQQKIkFURjM1t26d0vwR/j87CwY6QherYDqGzS3iOy04vQZux
+8H6YUp65Yg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.rtl.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>oirYdJE+wAHuJjyQX95x9Bl7lw/3idscEoz1jSslhNnQCOvGg1Gkl5/VZDkqeB1noXoAgXCK48SP
+zM4zJgYixQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.rtl.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>sBvFexih8/HG6HayD7CJlCGlMIfdewyHBe2JBSb7vXRuL6qOmfo059kkqfFFwvnC9qIB6med8QO/
+ZDkVDcI1ng==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap.rtl.min.css.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>kCIbG+lBjr4nITmYylNKmKH4xhZXAZ9yA/7S1TA15cMAs+3soWrs7N3itAvGvvv3zxb7rg5XUKCv
+hm6eT19h0w==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.bundle.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>ade5OkuVL+OsYvavdORMlKVFmuABDGzIVdepnBzif477QxKtPLjJ8H4/GHucoNV7slHB8fDP8uAY
+1CtpD8RzpQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.bundle.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>vaX8YOEEBfXcI+kCo0qnQUoEy9Nz4vAZ/EdOdzBswZzgRBzEzhcSs8+tUo/d9fVSUMvfrWwLF38Z
+3VIQr4wqRg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.bundle.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>72WD92hLs7T5FAXn3vkNZflWG6pglUDDpm87TeQmfSg8KnrymL2G30R7as4FmTwhgu9H7eSzDCX3
+mjitSecKnw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.bundle.min.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>zko7W1ovHssDHX2MzcrEfqq7BdLsHCUEaXrixEpdNO8mv7g837elo7Q/WhvY6wsoMRr0s3iFwMR2
+PLoOJe8hzA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.esm.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>Ca9+IsoLMMw6WnNtB/qftmCBBXBAAwjV/kZWJFx4ror/HwMoQd5aE7zcUWl9OUKq51oWW3AM5B8d
+HxwSIGMvjA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.esm.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>g7SEYFuMS8b2ojN+YhdZA6WX8NKK6LtWK+BYBjnmPgQvnhdrq+vdE4yQeeTYxDreG/f//D1rUNFH
+oHwarrY3MQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.esm.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>Oz1b6eJ3gVXzBtTRr9ljoZJ6TlU3vmvrqRyJs5xsZkbEy7CQJ/3KL5L1tXOXmiJT0E9WRZSNvvDH
+feDkkqL7ug==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.esm.min.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>s0pM2+MR2vCdE8IlfATmD9VeUB9s+77HQ+Ls1WEY4iE3238v/ECLDbFdIfG1m+xbzV3x+h45UOH+
+FnRNSP4jyQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>97OV/qkbsuY0wwsgvxBlZ2ooFV4TNB0jFC1bHG1FDy7PesedKU6GSYv/5UCYfm1B+Dnvc6SshUpq
+7VmO25KAmg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>OwSLMCCI74CY7N6EmK5lpUpQe0HFXYJDa1Sh5DDDl4O62BazAmoSRC8Fx0infnmfLTSEkK//U7lK
+o709X8N7gg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>a6ctI6w1kg3J4dSjknHj3aWLEbjitAXAjLDRUxo2wyYmDFRcz2RJuQr5M3Kt8O/TtUSp8n2rAyaX
+Yy1sjoKmrQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fjs%2Fbootstrap.min.js.map">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>NmUEm4+Ezy8Tk1L69VJ4WFr7VldC6SIpKo22yAnST1hzUPOKUxh6i1yBZ0KXTmkEFBCkTBUYGlSi
+w5cb7QXHYA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fnavigation%2Fjquery.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>AFwxAkWdvxRd9qhYYp1qbeRZj6/iTNmJ2GFwcxsMOzwwTaRwz2a/2TX225Ebcj3whXte1WGQb38c
+XE5j7ZQw3g==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fnavigation%2Flodash.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>tgJHkiyHB9dhpP4b9697WP5DdKoRG6aQ8KIDACv+1hvV+bEnaqtSspFyLGn7W6SIZAGOftFk8vuM
+2UFpdp0pOQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Flib%2Fnavigation%2Fspatial_navigation.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>gNTW/EDOSbCkP8ypdNXqosJ6TndyNneBBJ5WkcO/JPePHCZJ6u7ghjfGuxbpPbHZ3BUyXXDGJgYd
+oqJ7LPkBVw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Ffonts%2FManrope-Bold.ttf">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>VcksP+FPrP7D3SYAMYbNHxehJSxclWqLfYL7+54JKoYzAP3KUqmAcQ/t3Laf3u28aKX/aSxChAkA
+o+lIyVJScA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Ffonts%2FManrope-Medium.ttf">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>rAZ97alONxMrGIZMtga11OK0MjtvQLC2xh23+r27l96U1yyVN+FBiUznysMrcuI2tZFhHjlqysx1
+I32quIcv6A==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Ffonts%2FManrope-Regular.ttf">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>t72YgqCsCqR03treeGObrFQpXtOQ686rrostt+O5YJlyHqnX82Gq8fZrJV1PDEaKy+ABCE7BJpI4
+29NFkp99EQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Fimages%2Favatar.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>a5LKQchMfxBqvVvddWRO5jqMxmwSOzqRdPi93IFyV5m4WvN1OCzxH1OOomOLSxRNgyEY2dEhWR+8
+jJFdPviNAQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Fimages%2Fbg.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>aLhqTSzaD4eVRNJCBcEl8tnqLxNO2VlTzcJF88hHoCX86z0Ab4rY9RYx6McI63j3Z12AnfPqZGW2
+w9+pGJpJAQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Fimages%2Fdefault-avatar.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>1MZOBVR0nEr9DmaRSQ5vVEdsxWKbpNyT/EvNoCQ8hdO2esIlmigQ4k8mT/twD9uTeKsD2qahgIBJ
+Q2P0/mylpg==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fresources%2Fimages%2Fitem.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>0qD3JT9xd5J0M0GrlDMJ2bn5rGKSasDnknvQa5bOAhZuChNp1nDGvd1vQNzfH9FJcAMnNlnbEFIM
+gSbN2xwCbw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fviews%2Fheader.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>L13XaNErf/gs9CZpDZS6ORgzwk3EBbVAPzKp3ldfR9Qc/Id7OiZ3JD7aR3rgC4TPpS30yeG2X18O
+terjxTrcVA==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fviews%2Fhome.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>xFDl7s9wsInZT0bXLsEJB77uzSsLeZxkMAj7/6EBWh1ywtw/4R/GJFkRs0Etzfk7JdoaQmtirE00
+DJwlSj29RQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fviews%2Fmain.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>S1rbZyQA8PmexzJNFD6msXJxey/nckmId9pinO5FJatSOwFJ8duuLkclDbFmnWJvh2VjJtEUUjKN
+/mSUMsOMSQ==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fviews%2Fvideo-player.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>7Bk5t0padz1LwG+rIzLdBv9/HxHGlYoKNkmX2hwSK/HSOVOOrFqUq9rC4Ai8JLLHxCZdpJW6iMBC
+mrhvzyVTiw==</DigestValue>
+</Reference>
+<Reference URI="#prop">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2006/12/xml-c14n11"></Transform>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>/r5npk2VVA46QFJnejgONBEh4BWtjrtu9x/IFeLksjWyGmB/cMWKSJWQl7aU3YRQRZ3AesG8gF7q
+GyvKX9Snig==</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue>
+QjyDLOJVtfdHKnOfs8eSYJqjfroEsXRN5XDurqAbiz0sdAko79sPpGFQyYVNk5mwDsk5CB1TN5jP
+AS4tnIn75Idk1vdG7ng0SttVPBuwRYEUyc9ZZyj1ceSBMHvUsEwIqryEOySGhV4MDYSjZcOW1JIv
+tJl/Dhwf3msk3Y/R5RrRJThSXPOyWyh/j+xnK0Vg+JDUYVvKxvQCMG0PJLudVxdsZKomlddgqVkx
+VZQ2YbiO2UXbdN1hOmaUXxrsu3dk7pqKIgEPFFbiaK3/7Bku2L63c3p4tcdhLPtxMGISNnGBhHF9
+T32phJPnL7hpjmQIAtfSA6kctCntE7NJEecwGg==
+</SignatureValue>
+<KeyInfo>
+<X509Data>
+<X509Certificate>
+MIIDxzCCAq+gAwIBAgIBZDANBgkqhkiG9w0BAQ0FADCBjzELMAkGA1UEBhMCS1IxFDASBgNVBAgM
+C1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ftc3VuZyBFbGVjdHJvbmlj
+cyBDby4sIEx0ZC4xCzAJBgNVBAsMAlZEMSUwIwYDVQQDDBxWRCBERVZFTE9QRVIgUHVibGljIENB
+IENsYXNzMB4XDTI0MDQxODA3MzYxNVoXDTI1MDQxODA3MzYxNVowdzERMA8GA1UEAwwIVGl6ZW5T
+REsxCTAHBgNVBAsMADEJMAcGA1UECgwAMQkwBwYDVQQHDAAxCTAHBgNVBAgMADEJMAcGA1UEBhMA
+MSswKQYJKoZIhvcNAQkBFhx2aWpheS5rdW1hckB0dmlkc2VydmljZXMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiaEBAapUUl6RaYv/1fbkNsQ7DHdzWCGEnZ/TWskt4YP4KIQr
+HgSlOm0iXxfP7LGE0RpQsVDTq7bB6jNebW2YP1MS2Lv1mNWBAYJ5h6jHt0iBXhSdloAL9jJ7bvjL
+R5vY5Kql21VyQ1D+J8YyzFcHgImoey9gSHipxEpJWPhgsa9p0A44mvLVjG+y8PK9YU8N0gvfeb34
+dUsZNAKTtbvrDgBOYfumRcSZUU4Mj/ZSbknuc//bncFRrm9fOGOLy5Yu4Okm8QU+XW0xGjGGOqYw
+WqUwciVG+KN9RvleploCroqmtV4w32QxAV5ryC3ePLRi5W2D0pI0iCd+m1L7xAt0AwIDAQABo0Uw
+QzBBBgNVHREEOjA4hhRVUk46dGl6ZW46cGFja2FnZWlkPYYgVVJOOnRpemVuOmRldmljZWlkPVhU
+Q0pZSlpYWkJaVkswDQYJKoZIhvcNAQENBQADggEBAAPeS7B5yJa+/owMwX19zpIeVpZ05klxQW8F
+qxaGV+rdvSaRp6eu+kogvpv5kVknYo91oAHVAWg41FeTZD4R1wXEO0qMG1hFCkd8pQKDzD6HYAJB
+8DYUF3qqzFwLIet5o3SYV9P98ucam2xt+JphYBhsUpoQv9F7NBsmhtSdXJx/ZV/t1O92sjKQVGtQ
+uBvSAtr6YKHnQ2VU2JTkixBKHOiD5neAnpwzzw2iawF6EI4/AiWLd+thCkf+VxQojvkdlNAL8xHu
+x6Jfov+Cixc7r53gj32IPiQMX+UOnJhNcWluAoywP5wGghO+o2rrQmbz2AafsiSdl1I7f1D18tdb
+ZJA=
+</X509Certificate>
+<X509Certificate>
+MIIDrTCCApWgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBkTELMAkGA1UEBhMCS1IxFDASBgNVBAgM
+C1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ftc3VuZyBFbGVjdHJvbmlj
+cyBDby4sIEx0ZC4xCzAJBgNVBAsMAlZEMScwJQYDVQQDDB5WRCBERVZFTE9QRVIgUHVibGljIFJv
+b3QgQ2xhc3MwHhcNMTQxMjE5MDkyOTQyWhcNMjkxMjE1MDkyOTQyWjCBjzELMAkGA1UEBhMCS1Ix
+FDASBgNVBAgMC1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ftc3VuZyBF
+bGVjdHJvbmljcyBDby4sIEx0ZC4xCzAJBgNVBAsMAlZEMSUwIwYDVQQDDBxWRCBERVZFTE9QRVIg
+UHVibGljIENBIENsYXNzMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr9u+prHP0MtG
+DqQmDtIpFuFKD1mCmYPEA4OZ6zRH3f3t9cUmXtmAGEDPinCHpw9UdGU3JkNnNUd6dFf2HkFBIm8+
+LepRxR/rEmkHsBHFaLbTDVNZnwBXVs82eyMl9wonLp74otysnLAtEA968r7MH5WwwkF73W2vtOqA
++PpGOH31LAeLFNPajAVCgqiaIKn8eFQuLta2dNrXcZXia+GTXz0PZ0oEs6k1cphhkbe+uV5NL/qW
+DjF5X1rIGxz/58AwxfF73wP7QPY9Z34vwai0tcUvGAkNXW60FjTj6iZ2N/UxPsuhNa1sSv2srxhW
+SBAklC3L4A9C6o8sP91WkkdXIQIDAQABoxAwDjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUA
+A4IBAQCnzmtVT7Zr8BjemLmZu/mLmGizAl/QaufSyCLaPVnUlgdReeMdjBvtvNlM9/EJecxiWhAa
+kiZFA664lisAjQjL3bREP9HjOSSDhvx8GNLigjRKOJVivFxz0E4C7K/d9wBlstNCsTe2dRW0mhV+
+7l1kvbqByfi3kzUrJxaTOev/DxaPs9qofe/+Fvor5AcQXiKJ7wuva5HvYZq1z3f3XuEy/tIhv2fk
+to09aZTNHNjeHeqiAUQFNrtv8NbHQZZKKaZQbnrT2h4HjtfuzAHaFt1EaO7l2TRE+OEJIpSkKT08
+1kT1zqSmnj38acW/+ExcY7fABrT3oigLsXPBsYxjSAtn
+</X509Certificate>
+</X509Data>
+</KeyInfo>
+<Object Id="prop"><SignatureProperties xmlns:dsp="http://www.w3.org/2009/xmldsig-properties"><SignatureProperty Id="profile" Target="#DistributorSignature"><dsp:Profile URI="http://www.w3.org/ns/widgets-digsig#profile"></dsp:Profile></SignatureProperty><SignatureProperty Id="role" Target="#DistributorSignature"><dsp:Role URI="http://www.w3.org/ns/widgets-digsig#role-distributor"></dsp:Role></SignatureProperty><SignatureProperty Id="identifier" Target="#DistributorSignature"><dsp:Identifier></dsp:Identifier></SignatureProperty></SignatureProperties></Object>
+</Signature>
