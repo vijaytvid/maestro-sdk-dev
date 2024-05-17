@@ -153,6 +153,10 @@ table {
   src: url("../resources/fonts/Manrope-Bold.ttf") format("truetype");
 }
 
+.padding-left {
+  padding-left: 110px;
+}
+
 /* =================================End of font family ============================= */
 
 /* =================================Start of Splash Screen ============================= */
@@ -236,7 +240,8 @@ table {
 .row_heading {
   color: #ffffff;
   font-size: 2rem;
-  padding: 0 4rem;
+  padding: 0 0;
+  height: 3rem;
 }
 
 /* =================================End of Common classes ============================= */
@@ -251,40 +256,61 @@ table {
   bottom: 0;
   float: left;
   position: fixed;
-  background-color: #14141f;
-  padding: 20px;
-  overflow-y: auto;
+  background: transparent;
+  overflow-y: hidden;
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
+  z-index: 1;
 }
 
 /* Logo styles */
 .logo {
+  width: 110px;
   text-align: center;
+  height: 140px;
+  position: relative;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo li {
   margin: 1.5rem 0;
 }
+
 .logo li img {
   width: 40px;
   height: 40px;
 }
 
 /* Menu styles */
+.menu-container {
+  width: 110px;
+  height: 723px;
+  padding: 60px 0px 60px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 12px;
+  /* padding-left: 12px; */
 }
 
 .menu li {
   margin-bottom: 3rem;
   display: flex;
   justify-content: space-between;
+  width: 54px;
+  height: 54px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .menu li svg {
@@ -295,7 +321,7 @@ table {
 
 .menu li h3 {
   display: none;
-  color: #ffffff;
+  color: #919499;
   font-size: 1.6rem;
   position: fixed;
   margin: 0.4rem 0 0rem 4rem;
@@ -307,46 +333,42 @@ table {
 
 /* Settings styles */
 .settings {
-  position: relative;
+  width: 110px;
+  height: 217px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.menu li.selected-manu svg {
+  fill: #ffffff;
+}
+
+.menu li:focus {
+  background: rgba(176, 169, 241, 0.2);
+  color: #ffffff;
+}
+
+.menu li:focus svg {
+  fill: #ffffff;
+}
+
+.menu li:focus h3 {
+  color: #ffffff;
+}
+
+.gradient-color {
+  z-index: 99;
+  width: 100%;
+  background: linear-gradient(to right, #14141f, transparent) !important;
+}
 /* =================================End of sidebar-container Screen ============================= */
-
-/* =================================Start of Main container Screen ============================= */
-
-.main-container {
-  width: calc(100vw - 110px);
-  height: 100vh;
-  float: right;
-  right: 0;
-}
-
-/* =================================End of Main container Screen ============================= */
-
-/* =================================Start of Home Screen CSS ============================= */
-
-.maestro-container {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: inherit;
-  overflow: hidden;
-  background-color: #14141f;
-}
-
-.home-container,
-.video-player-container {
-  display: none;
-}
-
-.home-container {
-  width: 100%;
-  display: block;
-}
-
+/* =================================Start of top navbar container Screen ============================= */
 .header-container {
-  width: 100%;
+  width: 100vw;
   height: 140px;
+  z-index: 9999;
+  position: absolute;
 }
 
 .header-section {
@@ -360,18 +382,342 @@ table {
 
 .header-navigation {
   color: #ffffff;
+  justify-content: center;
+  overflow-x: hidden;
+  width: 1488.89px;
+  height: 90px;
+  padding: 0px 30px 0px 30px;
+  margin: 15px 0;
 }
 
-.header-navigation .nav-item {
+.nav-items {
+  /* width: 901px;
+  height: 64px;
+  padding: 0px 36px 0px 36px;
+  margin: 20px 0;
+  border-radius: 50px 0px 0px 0px;
+  display: flex;
+  overflow-x: hidden; */
+
+  width: 970px;
+  height: 64px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 36px 0px 36px;
+  /* gap: 20px; */
+  border-radius: 50px;
+  overflow-x: hidden;
+}
+
+.nav-items .nav-item {
   font-size: 2rem;
   font-weight: 700;
-  padding: 1rem 3rem;
-  width: 12rem;
+  width: 202px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-right: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  text-align: center;
+  font-family: "Manrope-Bold";
+  color: rgba(243, 247, 255, 1);
+  padding: 13px 40px 13px 40px;
+  gap: 30px;
+  border-radius: 50px;
+}
+
+.nav-items .nav-item.selected-nav {
+  background: rgba(8, 10, 12, 0.7);
+  /* border-radius: 50px; */
 }
 
 .nav-item:focus {
-  background-color: #6c5cf3;
-  border-radius: 2rem;
+  background-color: #6c5cf3 !important;
+  /* border-radius: 50px; */
+}
+
+.header-logo {
+  width: 260px;
+  height: 90px;
+}
+/* =================================End of top navbar container Screen ============================= */
+
+/* =================================Start of Main container Screen ============================= */
+
+.main-container {
+  /* width: calc(100vw - 110px); */
+  height: 100vh;
+  float: right;
+  right: 0;
+  width: 100vw;
+}
+
+/* =================================End of Main container Screen ============================= */
+
+/* =================================Start of Login container Screen ============================= */
+
+.login_container {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  float: right;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background-image: url("../../assets/login_bg.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.login-logo-box {
+  height: 140px;
+  display: flex;
+  justify-content: end;
+}
+
+.login-logo {
+  right: 0;
+  height: 90px;
+  width: 337.36px;
+  margin: 25px 0;
+  text-align: right;
+  position: absolute;
+  padding: 0px 60px 0px 0px;
+}
+
+.login-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.login-instruction-box {
+  width: 100vw;
+  height: 940px;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  padding: 60px 200px 180px 100px;
+  margin: 60px;
+}
+
+.instruction-container {
+  width: 1620px;
+  /* height: 600px;
+  padding: 60px 200px 180px 100px;
+  margin: 60px; */
+}
+
+.login-heading {
+  width: 1620px;
+  height: 52px;
+  margin: 0 0 60px 0;
+}
+
+.login-heading h3 {
+  width: 100%;
+  height: 52px;
+  font-family: "Manrope-Regular";
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: left;
+  color: rgba(243, 247, 255, 1);
+}
+
+.login-box {
+  width: 1620px;
+  height: 324px;
+  margin: 70px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-container {
+  width: 862px;
+  height: 324px;
+  /* padding: 40px; */
+}
+
+.steps {
+  display: flex;
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  /* margin-top: 40px; */
+}
+
+.steps h3 {
+  width: 100px;
+  height: 32px;
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  color: #f3f7ff;
+}
+
+.instruction {
+  width: 488px;
+  height: 32px;
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  width: 492px;
+  height: 124px;
+  /* margin: 20px; */
+}
+
+.steps .instruction .qr-link {
+  width: 920px;
+  height: 52px;
+  font-family: "Manrope-Regular";
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: left;
+  color: #8c80ff;
+  margin: 10px 0;
+}
+
+.login-code {
+  margin: 15px 0;
+  width: 528px;
+  display: flex;
+}
+
+.login-code div {
+  width: 72px;
+  height: 72px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background: rgba(8, 10, 12, 0.7);
+  font-family: "Manrope-Regular";
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: center;
+  color: rgba(243, 247, 255, 1);
+}
+
+.qr-container {
+  width: 274.02px;
+  height: 320.02px;
+  /* gap: 14px;
+  opacity: 0px; */
+}
+
+.qr-text {
+  width: 206px;
+  height: 32px;
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  background: #f3f7ff;
+}
+
+.qr-code {
+  width: 274.02px;
+  height: 274.02px;
+  border-radius: 20.92px;
+  background: #ffffff;
+}
+
+.qr-code-title {
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.qr-code img {
+  width: 214.78px;
+  height: 214.78px;
+  top: 29.62px;
+  left: 29.62px;
+  background: #000000;
+  position: relative;
+}
+
+.top-login-divider {
+  width: 1710px;
+  height: 0px;
+  top: 244px;
+  left: 100px;
+  opacity: 0.3;
+  border: 1px solid rgba(243, 247, 255, 1);
+}
+
+.bottom-login-divider {
+  width: 1710px;
+  height: 0px;
+  top: 688px;
+  left: 100px;
+  opacity: 0.3;
+  border: 1px solid #f3f7ff;
+}
+
+.instruction-container hr {
+  top: -15px;
+  width: 75px;
+  opacity: 1;
+  border: none;
+  position: relative;
+  /* border-bottom: 1px solid #f3f7ff; */
+  border-bottom: 1px solid rgba(243, 247, 255, 1);
+}
+
+/* .bottom-login-divider hr {
+  top: -15px;
+  width: 75px;
+  opacity: 1;
+  border: none;
+  position: relative;
+  border-bottom: 1px solid #f3f7ff;
+  border-bottom: 1px solid rgba(243, 247, 255, 1);
+} */
+
+/* =================================End of login container Screen ============================= */
+
+/* =================================Start of Home Screen CSS ============================= */
+
+.maestro-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: inherit;
+  overflow: hidden;
+  background-color: #14141f;
+}
+
+.home_container,
+.video-player-container,
+.page_container {
+  display: none;
+}
+
+.home_container,
+.page_container {
+  width: 100vw;
+  height: 1080px;
+  display: block;
+  position: absolute;
+  overflow-y: hidden;
 }
 
 .home-screen-section {
@@ -380,7 +726,7 @@ table {
 /* Start of banner CSS */
 .banner-container {
   width: 100%;
-  height: 760px;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -399,43 +745,157 @@ table {
 
 .banner-overlay {
   position: absolute;
-  top: 50%;
-  left: 28%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  top: 140px;
   color: white;
   padding: 10px;
-  width: 50%;
-  height: 23%;
+  width: calc(100vw - 110px);
+  height: 740px;
+  margin-left: 110px;
+}
+
+.banner-content-detail-box {
+  width: 1740px;
+  height: 252px;
+  gap: 30px;
+}
+
+.banner-content-detail-left,
+.banner-content-detail-right {
+  width: 870px;
+  height: 252px;
+  gap: 12px;
+}
+
+.banner-content-title {
+  width: 870px;
+  height: 144px;
+  gap: 0px;
+}
+
+.banner-content-title p {
+  font-family: "Manrope-Regular";
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 72px;
+  text-align: left;
+  /* background: rgba(243, 247, 255, 1); */
+}
+
+.banner-content-description {
+  width: 870px;
+  height: 96px;
+}
+
+.banner-content-description p {
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  /* background: rgba(243, 247, 255, 1); */
+}
+
+.banner-content-buttons {
+  width: 870px;
+  height: 144px;
+  margin: 30px 0 0 0;
+  display: grid;
 }
 
 .banner-button {
+  width: 268px;
+  height: 64px;
+  padding: 12px 40px 12px 40px;
+  border-radius: 100px;
+  border: 2px 0px 0px 0px;
+  text-align: center;
+  place-content: center;
+  display: grid;
+  font-family: "Manrope-Regular";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: right;
+  color: #fff;
+}
+
+.banner-button.primary_cta {
+  background: transparent;
+  border: 2px solid rgba(117, 102, 255, 1);
+}
+
+.banner-button.primary_cta:focus {
+  background: rgba(117, 102, 255, 1);
+  border: 2px solid rgba(117, 102, 255, 1);
+}
+
+.banner-button.secondary_cta {
+  background: transparent;
+  border: 2px solid rgba(243, 247, 255, 1);
+}
+
+.banner-button.secondary_cta:focus {
+  color: #000000;
+  background: rgba(243, 247, 255, 1);
+  border: 2px solid rgba(243, 247, 255, 1);
+}
+
+.content-container {
+  width: 100vw;
+  height: auto;
+  top: 52rem;
+  position: absolute;
+}
+
+/* .banner-overlay p {
+  margin: 1rem 0;
+} */
+
+/* .banner-button {
   width: 10rem;
   height: 3rem;
   margin: 0.4rem 0.8rem;
   transition: transform 0.3s ease;
-}
-.text-banner-container .col-sm-12:focus .banner-button {
+} */
+
+/* .text-banner-container .col-sm-12:focus .banner-button {
   transform: scale(1.1);
-}
+} */
 
 /* End od banner CSS */
 
 /* Start of image gallery CSS  */
 
 .item-container {
-  width: 100%;
+  display: block;
+  width: 1810px;
   height: 400px;
   margin: 0;
-  padding: 0;
+  padding: 2rem 0;
+  margin-left: 110px;
+}
+
+.pages-row-slider {
+  width: 1810px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.image-gallery-slider {
+  float: right;
+  width: 100000000px;
+  position: absolute;
+  overflow-x: hidden;
 }
 
 .item-container .col-sm-3 {
-  width: 400px;
-  height: 300px;
-  margin: 0.2rem 2.5rem;
+  width: 412px;
+  height: 232px;
+  margin: 0.2rem 1.5rem 0.2rem 0rem;
   color: #ffffff;
-  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-container img {
@@ -453,18 +913,34 @@ table {
 
 /* End of image gallery CSS  */
 
+/* Start of playlist CSS  */
+.playlist-item-container {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* End of playlist CSS  */
+
 /* Start of text banner CSS  */
 
 .page-row-item {
-  border: 4px solid transparent;
   display: grid;
   place-items: center;
   align-items: center;
   background: linear-gradient(-36deg, #12141a 50%, #1b1e26 50%);
-  border-radius: 4.5px;
-  border: none;
+  border-radius: 5px;
   font-size: 30px;
   font-weight: 800;
+  background-color: #242438;
+  border: 4px solid transparent;
+}
+
+.page-row-item .item-title {
+  position: absolute;
+  width: 412px;
+  height: auto;
+  text-align: center;
+  line-height: 100px;
 }
 
 .page-row-item:focus {
@@ -474,24 +950,71 @@ table {
 /* End of image gallery CSS  */
 
 /* Start of text banner CSS  */
+
+.textbanner_content {
+  width: 1807px;
+  height: 497px;
+  /* left: 339.94px; */
+  /* padding: 100px 60px 100px 60px; */
+  /* margin: 10px; */
+  background: rgba(18, 20, 26, 1);
+  border: 1px solid rgba(117, 102, 255, 1);
+  left: 108px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 1px;
+  /* top: 252.6px; */
+}
+
 .text-banner-overlay {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  width: 50%;
-  height: 554px;
   text-align: center;
-  /* padding: 100px 200px 100px 200px; */
-  /* background-color: #000000; */
-  /* place-content: center;
-  place-items: center;
-  display: grid; */
-  padding: 200px 0;
+  /* padding: 200px 0; */
   float: left;
   text-align: left;
+  width: 1691px;
+  height: 300px;
+  gap: 40px;
 }
 
+.textbanner_buttons {
+  display: grid;
+  place-items: center;
+}
+.textbanner_sub_heading {
+  width: 1691px;
+  height: 28px;
+  font-family: "Manrope-Regular";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  color: rgba(117, 102, 255, 1);
+}
+.textbanner_title {
+  width: 1691px;
+  height: 52px;
+  font-family: "Manrope-Regular";
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: center;
+  color: rgba(243, 247, 255, 1);
+}
+.textbanner_description {
+  width: 1691px;
+  height: 96px;
+  font-family: "Manrope-Regular";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  color: rgba(194, 197, 204, 1);
+}
 /* End of text banner CSS  */
 /* Start of video spot light CSS  */
 
@@ -541,10 +1064,15 @@ table {
   width: 85%;
   height: 22rem;
   position: relative;
-  padding: 20px;
+  padding: 0;
   display: inline-block;
   background-color: #242438;
   border-radius: 10px;
+}
+
+.text-image-wrapper img {
+  width: 100%;
+  height: 100%;
 }
 
 .image-text-box {
@@ -552,8 +1080,23 @@ table {
   color: #ffffff;
   margin: 8px 0;
 }
+
+.image-text-box p {
+  margin: 1rem 0;
+}
+
+.imagetext-container {
+  width: 100%;
+  height: 573px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  left: 110px;
+}
+
 .imagetext-container .col-sm-12:focus .banner-button {
-  transform: scale(1.1);
+  background: rgba(117, 102, 255, 1);
+  border: 2px solid rgba(117, 102, 255, 1);
 }
 
 /* End of Image And Text CSS  */

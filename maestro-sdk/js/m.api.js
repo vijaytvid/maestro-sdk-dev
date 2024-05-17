@@ -1,7 +1,27 @@
-function getAppData() {
-  console.log("getAppData");
+var site_data = {};
+var theme_data = {};
+var app_data = {};
+var playListArray = [];
 
-  fetch(config.appUrl, {
+function getSiteData() {
+  console.log("getSiteData");
+  let url = `${config.domain}/site/v1/${config.siteId}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+      site_data = response;
+      getThemeData();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getThemeData() {
+  console.log("getThemeData");
+  let url = `${config.domain}/themes/v1/${site_data.settings.default_theme_id}`;
+  fetch(url, {
     headers: {
       "x-maestro-client-id": config.clientId,
     },
@@ -9,8 +29,48 @@ function getAppData() {
     .then((res) => res.json())
     .then((response) => {
       console.log(response);
-      config.appData = response;
+      theme_data = response;
+      $("body").css("font-family", theme_data.typography.body);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getAppData() {
+  console.log("getAppData");
+  let url = `${config.domain}/page/v2/content/slug/${config.slug}`;
+  fetch(url, {
+    headers: {
+      "x-maestro-client-id": config.clientId,
+      "x-maestro-maestro-kit-flavor": "OTT/tvOS",
+    },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+      app_data = response;
       renderHeader();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function screenData() {
+  console.log("getAppData");
+  let url = `${config.domain}/page/v2/content/slug/${config.slug}`;
+  fetch(url, {
+    headers: {
+      "x-maestro-client-id": config.clientId,
+      "x-maestro-maestro-kit-flavor": "OTT/tvOS",
+    },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+      app_data = response;
+      renderHomeScreen();
     })
     .catch((error) => {
       console.log(error);
@@ -49,7 +109,7 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
 
 function getTopNavigationData() {
   console.log("getTopNavigationData");
-  let url = `${config.domain}/navigation/v1/${config.appData.data.navigation_id}`;
+  let url = `${config.domain}/navigation/v1/${app_data.channel.data.navigation_id}`;
   try {
     fetch(url, {
       headers: {
@@ -71,7 +131,7 @@ function getTopNavigationData() {
 
 function getVideoPlayList(playlistId, elementId, rowIndex) {
   console.log("getAppData", playlistId, elementId);
-  let url = `${config.playlistUrl}/${playlistId}`;
+  let url = `${config.domain}/playlist/v1/${playlistId}`;
   try {
     fetch(url, {
       headers: {
@@ -82,6 +142,7 @@ function getVideoPlayList(playlistId, elementId, rowIndex) {
       .then((response) => {
         console.log(response);
         fetchData(response, elementId, rowIndex);
+        $("#playlistTitle").text(response.title);
         // config.appData = response;
         // renderHeader();
       })
@@ -99,7 +160,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
   let i = 0;
   for (const list of data) {
     try {
-      let url = `${config.videoDetailUrl}/${list.id}`;
+      let url = `${config.domain}/video/v3/${list.id}`;
       const response = await fetch(url, {
         headers: {
           "x-maestro-client-id": config.clientId,
@@ -117,9 +178,9 @@ async function fetchData(playlistData, elementId, rowIndex) {
         rowIndex - 1
       }_0" data-sn-down="#row_item_${
         rowIndex + 1
-      }_0" tabindex="4" style="background-color: #242438"> `;
+      }_0" tabindex="4" data-kind="playlist" style="background-color: #242438"> `;
       if (data["thumbnail"] !== undefined)
-        src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
+        src += `<img src="https://api.maestro.io${data["thumbnail"]}" alt="${data["title"]}" />`;
       else src += `<h3>${data["title"]}</h3>`;
       src += `</div>`;
       // Process the API response as needed
@@ -130,4 +191,67 @@ async function fetchData(playlistData, elementId, rowIndex) {
   }
 
   document.getElementById(elementId).innerHTML = src;
+}
+
+function updateLoginScreen() {
+  console.log("updateLoginScreen");
+  clearInterval(qr_code_interval);
+  let url = `${config.domain}/accesscode/v1/tv`;
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      "x-maestro-client-id": config.clientId,
+    },
+    body: JSON.stringify({ deviceId: webapis.appcommon.getUuid() }),
+  };
+
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (result.code !== null && result.code !== undefined) {
+        var currentTimestamp = Date.now();
+        if (result.expiresAt < currentTimestamp) {
+          updateLoginScreen();
+        } else renderLoginCode(result);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function checkQRCodeExpiration(code) {
+  console.log("checkQRCodeExpiration", code);
+  let url = `${config.domain}/accesscode/v1/tv/${code}`;
+  // const options = {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //     "x-maestro-client-id": config.clientId,
+  //   },
+  //   body: JSON.stringify({ deviceId: webapis.appcommon.getUuid() }),
+  // };
+
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "x-maestro-client-id": config.clientId,
+      "x-maestro-device-id": webapis.appcommon.getUuid(),
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      // if (result.code !== null && result.code !== undefined) {
+      //   var currentTimestamp = Date.now();
+      //   if (result.expiresAt < currentTimestamp) {
+      //     updateLoginScreen();
+      //   } else renderLoginCode(result);
+      // }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

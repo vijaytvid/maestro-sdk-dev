@@ -1,7 +1,7 @@
-var playListArray = [];
 var player = "";
 function load_player(videoData) {
   console.log(videoData, player);
+  var videoType = "";
   var options = {
     autoplay: false,
     controls: true,
@@ -10,7 +10,7 @@ function load_player(videoData) {
     aspectRatio: "16:9",
   };
 
-  player = videojs("my-player", options, function onPlayerReady() {
+  player = videojs("maestroPlayer", options, function onPlayerReady() {
     videojs.log("Your player is ready!");
 
     // In this context, `this` is the player that was created by Video.js.
@@ -54,15 +54,19 @@ function load_player(videoData) {
     });
   });
 
-  let videoType =
-    videoData?.url.indexOf(".m3u8") > -1
-      ? "application/x-mpegURL"
-      : "video/mp4";
+  if (videoData !== null && videoData !== undefined) {
+    videoType =
+      videoData.url.indexOf(".m3u8") > -1
+        ? "application/x-mpegURL"
+        : "video/mp4";
+  }
+
   player.src({
     src: videoData.url,
     type: videoType,
     withCredentials: false,
   });
+
   show_hide_video_container(true);
   player.play();
 }
@@ -72,13 +76,19 @@ function show_hide_video_container(show = true) {
   //   $(".video-inner").show();
   //   $(".video-loader").show();
   if (show) {
-    $(".maestro-container, .home-container").removeClass("active").hide();
+    $(".home_container, .page_container, .login_container, .loader_container")
+      .removeClass("active")
+      .hide();
     $(".video-player-container").addClass("active").show();
   } else {
     player.pause();
     $(".video-player-container").removeClass("active").hide();
-    $(".maestro-container, .home-container").addClass("active").show();
-    SN.focus("#" + first_page_selected_id);
+    $(".maestro-container").show();
+
+    if (page_index == 5) $(".page_container").addClass("active").show();
+    else $(".home_container").addClass("active").show();
+
+    SN.focus("#" + first_page_selected_element);
   }
   //   $("#av-player").css("display", "block");
 }

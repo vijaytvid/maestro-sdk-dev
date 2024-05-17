@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/mastro" version="1.0.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
-    <tizen:application id="SuMjEVxMNo.mastro" package="SuMjEVxMNo" required_version="2.1"/>
+    <tizen:application id="xFUpKQSdXh.maestro" package="xFUpKQSdXh" required_version="2.1"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
     <feature name="http://samsungapps.com/api/webapis" required="false"/>

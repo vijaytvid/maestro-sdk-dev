@@ -1,4 +1,3 @@
-var first_page_selected_id = "";
 function manage_spatial_navigation(containerClass, containerId = "") {
   if (containerId) itemId = containerId + "_0";
 
@@ -12,6 +11,11 @@ function manage_spatial_navigation(containerClass, containerId = "") {
 
       $("#headerNavigation").on("sn:enter-down", function (e) {
         console.log("headerNavigation enter...");
+        nav_index = parseInt($("#" + e.target.id).attr("data-nav-index"));
+        config.slug = $("#" + e.target.id).attr("data-slug");
+        resetTopNavigation(e.target.id);
+        show_hide_screens("");
+        screenData();
       });
       break;
 
@@ -21,91 +25,35 @@ function manage_spatial_navigation(containerClass, containerId = "") {
       // When menu foucs
       $("#menu").on("sn:focused", function (e) {
         console.log("menu focused");
-        // if ($(".menu_container").hasClass("toggle_menu"))
-        //   $(".menu_container").removeClass("toggle_menu");
-        // set_page_index();
-        // PREVIEW_FULL_DISPLAY = false;
-        // change_sidebar_focus_image(e.target.id);
+        $("#menu").addClass("gradient-color");
+        $("#menu").addClass("toggle_menu");
+        $(".selected-manu").removeClass("selected-manu");
+        $("#" + e.target.id).addClass("selected-manu");
       });
 
       $("#menu").on("sn:enter-down", function (e) {
         console.log("menu entered");
-        // if (!$(".home_container").hasClass("active")) {
-        //   $("#home_spinner").hide();
-        //   MENU_INDEX = TAB_INDEX = PAGE_INDEX = 0;
-        //   reset_preview_player(true);
-        //   $(".menu_container").removeClass("toggle_menu");
-        //   $(
-        //     ".home_container, .account_container, .setting_container, .search_container, .video_library_container, .video_container, .exit_container"
-        //   )
-        //     .removeClass("active")
-        //     .hide();
-        //   $("#home_spinner").show();
-        //   if (
-        //     SELECTED_COUNTRY_GENRE == COUNTRY_GENRE &&
-        //     SELECTED_ALPHA_NUMERIC == ALPHA_NUMERIC
-        //   ) {
-        //     reset_global_variable();
-        //     if (_.size(COUNTRY_CHOICE) > 0) {
-        //       var tempArray = JSON.parse(JSON.stringify(APP_COUNTRY_ARRAY));
-        //       var tempArr = [];
-        //       for (var c = _.size(COUNTRY_CHOICE) - 1; c > -1; c--) {
-        //         for (var i = 0; i < _.size(tempArray); i++) {
-        //           if (tempArray[i]["id"] == COUNTRY_CHOICE[c]) {
-        //             tempArr = tempArray[i];
-        //             tempArray.splice(i, 1);
-        //             tempArray.unshift(tempArr);
-        //             tempArr = [];
-        //           }
-        //         }
-        //       }
-        //       APP_GENRE_COUNTRY_LIST = tempArray.slice(0);
-        //     } else {
-        //       APP_GENRE_COUNTRY_LIST = JSON.parse(
-        //         JSON.stringify(APP_COUNTRY_ARRAY)
-        //       );
-        //     }
-        //     if (SELECTED_COUNTRY_GENRE == "GENRE")
-        //       APP_GENRE_COUNTRY_LIST = JSON.parse(
-        //         JSON.stringify(APP_GENRE_LIST)
-        //       );
-        //     set_homepage_genre_country_channel();
-        //   } else {
-        //     if (SELECTED_COUNTRY_GENRE == "COUNTRY") {
-        //       if (_.size(COUNTRY_WISE_CHANNEL_DATA) > 0) {
-        //         reset_global_variable();
-        //         if (_.size(COUNTRY_CHOICE) > 0) {
-        //           var tempArray = APP_COUNTRY_ARRAY.slice(0);
-        //           var tempArr = [];
-        //           for (var c = _.size(COUNTRY_CHOICE) - 1; c > -1; c--) {
-        //             for (var i = 0; i < _.size(tempArray); i++) {
-        //               if (tempArray[i]["id"] == COUNTRY_CHOICE[c]) {
-        //                 tempArr = tempArray[i];
-        //                 tempArray.splice(i, 1);
-        //                 tempArray.unshift(tempArr);
-        //                 tempArr = [];
-        //               }
-        //             }
-        //           }
-        //           APP_GENRE_COUNTRY_LIST = tempArray.slice(0);
-        //         } else {
-        //           APP_GENRE_COUNTRY_LIST = JSON.parse(
-        //             JSON.stringify(APP_COUNTRY_ARRAY)
-        //           );
-        //         }
-        //         set_homepage_genre_country_channel();
-        //       } else getListOfCountries();
-        //     } else if (SELECTED_COUNTRY_GENRE == "GENRE") {
-        //       if (_.size(APP_GENRE_LIST) > 0) {
-        //         reset_global_variable();
-        //         APP_GENRE_COUNTRY_LIST = JSON.parse(
-        //           JSON.stringify(APP_GENRE_LIST)
-        //         );
-        //         set_homepage_genre_country_channel();
-        //       } else getGenreList();
-        //     }
-        //   }
-        // }
+        menu_index = parseInt($("#" + e.target.id).attr("data-menu-index"));
+        let slug = $("#" + e.target.id).attr("data-slug");
+        if (menu_index === 2 && config.slug !== slug) {
+          config.slug = $("#" + e.target.id).attr("data-slug");
+          resetTopNavigation(e.target.id);
+          show_hide_screens("");
+          screenData();
+        } else if (menu_index === 3) {
+          show_hide_screens("");
+          updateLoginScreen();
+        }
+
+        tab_index = page_index = menu_index;
+      });
+
+      $("#menu").on("sn:unfocused", function (e) {
+        console.log("menu unfocused");
+        $("#menu").removeClass("gradient-color");
+        $("#menu").removeClass("toggle_menu");
+        $(".selected-manu").removeClass("selected-manu");
+        $("#menu_" + menu_index).addClass("selected-manu");
       });
 
       break;
@@ -156,7 +104,7 @@ function manage_spatial_navigation(containerClass, containerId = "") {
       $("#" + containerId).on("sn:enter-down", function (e) {
         console.log("videoSpotlightContainer enter...", playListArray);
         console.log("Target element ", e);
-        first_page_selected_id = e.target.id;
+        first_page_selected_element = e.target.id;
         let index = $("#" + e.target.id).index();
         console.log(index);
         load_player(playListArray[index]);
@@ -204,8 +152,8 @@ function manage_spatial_navigation(containerClass, containerId = "") {
 
         var className = "";
         if (PAGE_INDEX == 0) className = "home_container";
-        else if (PAGE_INDEX == 1) className = "video_library_container";
-        else if (PAGE_INDEX == 2) className = "episode_container";
+        else if (PAGE_INDEX == 1) className = "pge_container";
+        else if (PAGE_INDEX == 10) className = "video_library_container";
         else if (PAGE_INDEX == 3) className = "search_container";
         else if (PAGE_INDEX == 4) className = "account_container";
         else if (PAGE_INDEX == 5) className = "setting_container";
@@ -292,13 +240,10 @@ function focus_channel_list() {
   SN.makeFocusable();
 }
 
-function set_channel_list_focus(row_num) {
+function set_content_focus(row_num) {
   var restrictVal = "self-first";
-  var total = 0;
-  if (SELECTED_COUNTRY_GENRE == "COUNTRY") total = _.size(APP_COUNTRY_LIST);
-  else if (SELECTED_COUNTRY_GENRE == "GENRE") total = _.size(APP_GENRE_LIST);
-  for (i = row_num; i < total; i++) {
-    var containerId = "channel_list_" + i;
+  for (i = 0; i < row_num; i++) {
+    var containerId = "row_" + i;
     var itemId = "row_item_" + i + "_0";
     SN.remove(containerId);
     SN.add({
@@ -312,135 +257,34 @@ function set_channel_list_focus(row_num) {
   }
 
   // When menu foucs
-  $("[id^=channel_list_]").on("sn:focused", function (e) {
+  $("[id^=row_]").on("sn:focused", function (e) {
+    console.log(e, this);
+    $("#" + e.target.id).ensureVisible(function () {
+      SN.focus(this);
+    });
     PAGE_INDEX = MENU_INDEX = TAB_INDEX = 0;
-    var id = (FIRST_PAGE_FOCUSED_ITEM = e.target.id);
-    if (!$(".menu_container").hasClass("toggle_menu"))
-      $(".menu_container").toggleClass("toggle_menu");
-    var parentId = $("#" + id)
-      .parent()
-      .attr("id");
-    var countryIndex = $("#" + id)
-      .parent()
-      .parent()
-      .parent()
-      .find("h1")
-      .attr("id");
-
-    set_first_last_unfocusable_list(parentId, countryIndex);
+    var id = (first_page_focused_element = e.target.id);
+    // if (!$(".menu_container").hasClass("toggle_menu"))
+    //   $(".menu_container").toggleClass("toggle_menu");
   });
 
-  $("[id^=channel_list_]").on("sn:enter-down", function (e) {
+  $("[id^=row_]").on("sn:enter-down", function (e) {
+    console.log(e.target.id);
     PAGE_INDEX = MENU_INDEX = TAB_INDEX = 0;
-    SELECTED_CHANNEL_TYPE = "CHA";
-    var id = (FIRST_PAGE_SELECTED_ITEM = e.target.id);
-    var index = (SELECTED_CHANNEL_INDEX = $("li#" + id).index());
-    var countryName = (SELECTED_CAT_INDEX = $("#" + id)
-      .parent()
-      .attr("data-name"));
-    SELECTED_CHANNEL_ROW = $("#" + id)
-      .parent()
-      .attr("id");
-    var channel_id = APP_CHANNEL_DATA_ARRAY[countryName][index]["id"];
-    if (TIMER) {
-      clearTimeout(TIMER); //cancel the previous TIMER.
-      TIMER = null;
-    }
-
-    if ($("#" + id).hasClass("selected_channel")) {
-      $("#preview-av-player")
-        .removeClass("video-player-minimize")
-        .addClass("video-player-expand");
-      $(".video_player_error_message").addClass("expand_preview_error_msg");
-      $(".preview-video-buffered")
-        .removeClass("live-preview-player-loader")
-        .addClass("live-main-player-loader");
-
-      $("#player_fav").attr(
-        "data-id",
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["id"]
-      );
-
-      get_player_channel_epg(APP_CHANNEL_DATA_ARRAY[countryName][index]["id"]);
-
-      $("#player_channel_name").text(
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["number"] +
-          ". " +
-          APP_CHANNEL_DATA_ARRAY[countryName][index]["name"]
-      );
-
-      if (
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["favorite"] ||
-        typeof FAVORITE_DATA[channel_id] !== "undefined"
-      ) {
-        $("#player_fav").addClass("added");
-        $("#player_fav").text("- FAV");
-      } else {
-        $("#player_fav").removeClass("added");
-        $("#player_fav").text("+ FAV");
-      }
-
-      if (APP_CHANNEL_DATA_ARRAY[countryName][index]["hd"] != 0)
-        $("#player_hd").show();
-      else $("#player_hd").hide();
-
-      $("#channel_logo_expend").html(
-        '<img src="' +
-          APP_IMAGE_URL +
-          APP_CHANNEL_DATA_ARRAY[countryName][index]["logo"] +
-          '" alt="' +
-          APP_CHANNEL_DATA_ARRAY[countryName][index]["name"] +
-          '" onerror="imageError(this);" />'
-      );
-
-      $("#video_content_details").show();
-      if (
-        webapis.avplay.getState() != "NONE" &&
-        webapis.avplay.getState() != "IDLE"
-      ) {
-        webapis.avplay.setDisplayRect(0, 0, 1920, 1080);
-        sendMediaInfo(
-          "tv-channel",
-          APP_CHANNEL_DATA_ARRAY[countryName][index]["number"]
-        );
-      }
-      PREVIEW_FULL_DISPLAY = true;
-      SN.focus("favorite_button");
-
-      TIMER = setTimeout(function () {
-        $("#video_content_details").hide();
-        if (PREVIEW_FULL_DISPLAY) SN.focus("previewVideoPlayer");
-      }, 3000);
-    } else {
-      SELECTED_CHANNEL_NUMBER =
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["number"];
-      $(".selected_channel").removeClass("selected_channel");
-      $("#" + id).addClass("selected_channel");
-      $("#selected_channel_name").text(
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["number"] +
-          ". " +
-          APP_CHANNEL_DATA_ARRAY[countryName][index]["name"]
-      );
-      $("#selected_channel_country").text(
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["country_id"]
-      );
-      $("#selected_channel_language").text(
-        APP_CHANNEL_DATA_ARRAY[countryName][index]["language_id"]
-      );
-      get_channel_epg(APP_CHANNEL_DATA_ARRAY[countryName][index]["id"]);
-
-      if (APP_CHANNEL_DATA_ARRAY[countryName][index]["favorite"])
-        $(".fav").css("display", "inline-block");
-      else $(".fav").hide();
-
-      if (APP_CHANNEL_DATA_ARRAY[countryName][index]["hd"] != 0)
-        $(".hd").css("display", "inline-block");
-      else $(".hd").hide();
-
-      webapis.avplay.stop();
-      webapis.avplay.close();
-      VOD_URL = APP_CHANNEL_DATA_ARRAY[countryName][index]["url"];
-      checkVideoURL();
+    var id = (first_page_selected_element = e.target.id);
+    let kind = $("#" + e.target.id).attr("data-kind");
+    console.log(kind);
+    if (kind === "playlist") {
+      first_page_selected_element = e.target.id;
+      let index = $("#" + e.target.id).index();
+      console.log(index);
+      load_player(playListArray[index]);
+    } else if (kind === "pagesRow") {
+      console.log("pagesRow");
+      config.slug = $("#" + e.target.id).attr("data-slug");
+      tab_index = page_index = 5;
+      show_hide_screens("");
+      screenData();
     }
   });
 }
