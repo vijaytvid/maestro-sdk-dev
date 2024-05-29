@@ -8,15 +8,25 @@
 //   slug: "landing",
 // };
 
-//bowl
+//AFL
 window.config = {
   domain: "https://api.maestro.io",
   siteId: "5c09513f58dfae005af67a20",
-  clientId: "5c09513f58dfae005af67a20",
+  clientId: "65a1887a032bbc0743d375c1",
   developerKey:
-    "b3e804b8419c56a0d474bd49faf180fea9e471041f42fc2b2529683ebce01e6aceede7313b0e0b61f2d16eba58357f05",
-  slug: "home",
+    "0957be7bf77fd8ef3c22c260ee072c75292adf5a3bd448ffdc42a6b5544ae0fd046a6dd9ee60ab58e5458bb0d4a10a80",
+  slug: "65a1887b032bbc0743d375f3",
 };
+
+//bowl
+// window.config = {
+//   domain: "https://api.maestro.io",
+//   siteId: "5c09513f58dfae005af67a20",
+//   clientId: "5c09513f58dfae005af67a20",
+//   developerKey:
+//     "b3e804b8419c56a0d474bd49faf180fea9e471041f42fc2b2529683ebce01e6aceede7313b0e0b61f2d16eba58357f05",
+//   slug: "home",
+// };
 
 // window.config = {
 //   domain: "https://dev.api.maestro.io",

@@ -5,6 +5,7 @@
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
     <feature name="http://samsungapps.com/api/webapis" required="false"/>
+    <feature name="http://tizen.org/feature/tv"/>
     <icon src="icon_400x400.png"/>
     <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="false"/>
     <tizen:metadata key="http://samsung.com/tv/metadata/multitasking.support" value="true"/>

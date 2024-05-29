@@ -44,13 +44,13 @@ AKB06pdt+Q==</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>AZn43l4vA81eYM8nXk4j87g8hg3RkZNk5InRWR+sfWc2SSDmEkTLfz5T38VhyDb6QcHhTXyVCrni
-SiDtBu/NcQ==</DigestValue>
+<DigestValue>+pJboySF/kRGIJrUZgRo/bmwBvhC9Ui6kW8y8r3zCyo7IGcAUGreHRYdWr6QNRp+0nrwV6WsV9Rv
+anETcdIluw==</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>zbeecVF68D/XXcyDEPN+xp23L/Ipr3hB+pF9rT/I6+B7NrezKLZ0la/udFJkURDPGAOqUl4cM/wF
-QPq5ZRduYw==</DigestValue>
+<DigestValue>EbXLVUCFvZS5/LzitNOhcCjE5pXzkOH3mkKwIW8GZ0OOW3hQkrcZgNSYVvHvuPZ1ayuLsTek4F8f
+0QMgJgFO8Q==</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -84,28 +84,33 @@ XPU8q5DlGw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fcss%2Fmain.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>oZfCOWIV3yx5b31cO+/Hcx1EubLmKzNXYPsDtuAJMxVvYIN4HYrMSexT03j0ryoPScOP0yh+v041
-kKDf31qWkg==</DigestValue>
+<DigestValue>Kjl/8V+RCJiu0SdMvtTkum92WtDKJh4x0pnR4qO5OYYzU8OQZmaOm/UpE3bPVGPX64YvS/t0q3rF
+TCYKPOjBUg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.api.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>9j43JgeJh2qVVNT66pExqKUQTW0L2qraLZ+HfAtVNUVFVu1anNlDqqsq1yjDwubSKz9kM8iqClLo
-TWYUlinaBA==</DigestValue>
+<DigestValue>Bofyu60+Zzg+SSY2tE8PVwAWeaKCOLmOysaEtSh2Kam5m2OvUYGeGVR0XWNA83NNRXE3Yha+UETh
+D4aXKXVXHg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.common-navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>xwSv2lobojZqfLNTLc+xg0bQLiHwcyu7bdKwsIKQaa+dggoB91nW5cBOgOfEzcHqkEH+8niPifhX
-yQex88gUiQ==</DigestValue>
+<DigestValue>amshEpAt1tQXfjEQkIzup11abpuOkT749af8Jw+bEtxw3T2j3J2rAr/EatMysOWhZb5NL/5acHHT
+yyk+riavgg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.config.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>jJBVdBKZS4yAhZLJ2kYjH1Hbs51NnMymqCtHHikUJm6JRQY5Vl7MYYsd7EWZH0Wkb3t5/cUBACAB
-YxGt/Avp4A==</DigestValue>
+<DigestValue>POr5D5QR5AiAChs+MHheaC2pLc6hfTLommy6jwasHLRq/bYzt4qbjfwrokFiXxSiV5rsEO1g8jk3
+pozVCSvfMw==</DigestValue>
+</Reference>
+<Reference URI="maestro-sdk%2Fjs%2Fm.fetch-instance.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>WNefNcD/ysmuvoWSXEPPhv5pmpohyfweIAi0Xbq5D2EchDcMjxlSiaRfrKFxDouZfyTrINkh3MeS
+hpvZLP7vow==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.home.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>QqgyigBiETkMpjOQUuGCPdSMNcsd0bnN2lnba7QznQEJBCWV6zPbh7YKpc0WXkeMLePC48jiucnE
-MG9lhyWRqw==</DigestValue>
+<DigestValue>cr1IBmIt7MiqCyugej/yj7arf5M8L/xjEuAXRd88P/XQ5ThGPOfoC9gN1b5YtR1hWvB90ChSzj4k
+VajRD29ZCA==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -447,11 +452,11 @@ GyvKX9Snig==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-eCNwaDcH8cBvfLbm7Fql0UtfyrJosrK6TmgTwV4FhMl7ddlWQKkOvhF8avDU9F3lmU02RkAk1tVZ
-7cV82/kJLEMJbF9NxpDZ7ihZz0yX9hGd8r4zAlKkbXUZJIDptANzSkBDkt8E9E/C4YnwuNU5WL58
-X8E6mTVXflkR+RnGzzY++qpJIlE9q2Y4v+0t9U7SqGO/U2/kf1G8Y+N9UxBmnNc0MeMnatKSdhep
-eGlV+HardSIsZT2qwcjNY8/428AjM9BGhCLMB17931laSyJ2d5GU/hlMVF1UA53+RcWFJbbKSm+G
-VG/9ssF1MLQ/VSv2NmtA5LJ42oFA5pVZsYQucw==
+NkC8X//C49qhjoFxopJ1/7XJpKYaZrBGJ8cKmqgEsV+3e/Q/Y0x7qMn4gWo9d/8HaCBiTCFTSZi/
+cjXyxC5bCYSks2vWcDcUsYyxvEIbzXh3EvgGqsEphHotj4ihW9kPiIN0qjrbksjqS9RyBnX83mpY
+tAJlqAeRozVsVClLHYF+GBMlgKZ1tVyR6AgXdxVA1ZUP2c2kD9SZjcVCy1VNzvBmM0mk20KgQy/3
+GeyMkXpPKuLiGCPEGa73EE9h6seil32LU6/H/Kmd/tYW9SLwdGQk793oHEfiSaIKRiII0udbeZjp
+2XXOFkZq2PmXQikbLJUh4SD4zFFElfEqvNhNFg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -744,7 +744,7 @@ table {
 }
 
 .banner-overlay {
-  position: absolute;
+  position: relative;
   top: 140px;
   color: white;
   padding: 10px;
@@ -784,6 +784,7 @@ table {
 .banner-content-description {
   width: 870px;
   height: 96px;
+  margin: 12px 0;
 }
 
 .banner-content-description p {
@@ -793,6 +794,9 @@ table {
   line-height: 32px;
   text-align: left;
   /* background: rgba(243, 247, 255, 1); */
+}
+.banner-content-description span {
+  font-size: 24px !important;
 }
 
 .banner-content-buttons {
@@ -808,9 +812,8 @@ table {
   padding: 12px 40px 12px 40px;
   border-radius: 100px;
   border: 2px 0px 0px 0px;
-  text-align: center;
-  place-content: center;
   display: grid;
+  place-items: center;
   font-family: "Manrope-Regular";
   font-size: 24px;
   font-weight: 600;
@@ -889,8 +892,8 @@ table {
 }
 
 .item-container .col-sm-3 {
-  width: 412px;
-  height: 232px;
+  /* width: 412px; */
+  height: 100%;
   margin: 0.2rem 1.5rem 0.2rem 0rem;
   color: #ffffff;
   display: flex;
@@ -905,6 +908,7 @@ table {
 
 .image-gallery-item {
   border: 4px solid transparent;
+  height: 100%;
 }
 
 .image-gallery-item:focus {
@@ -1018,11 +1022,20 @@ table {
 /* End of text banner CSS  */
 /* Start of video spot light CSS  */
 
+.videoSpotlight-container {
+  width: 1810px;
+  height: 582px;
+  margin-left: 110px;
+}
+
 .videoSpotlight-container:first-child {
   position: relative;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   display: list-item;
+  width: 1690px;
+  height: 462px;
 }
+
 .videospotlight-text-box {
   place-items: center;
   font-size: 2.2rem;
@@ -1035,26 +1048,46 @@ table {
 
 .videospotlight-text-box h3 {
   margin: 0.6rem 0.2rem;
+  font-family: "Manrope-Regular";
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: left;
 }
+
+.videospotlight-text-box h4 {
+  font-family: "Manrope-Regular";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+}
+
 .image-wrapper {
-  width: 85%;
+  width: 100%;
   position: relative;
-  padding: 20px;
-  display: inline-block;
+  /* padding: 20px; */
+  display: grid;
+  place-items: center;
 }
+
 .videospotlight-text-box:nth-child(2) {
   font-size: 1.6rem;
 }
+
 .videoSpotlight-container img {
-  max-width: 100%;
-  height: auto;
+  width: 785px;
+  height: 441.56px;
+  border-radius: 10px;
   display: block;
   position: relative;
-  transition: transform 0.3s ease;
+  /* transition: transform 0.3s ease; */
 }
 
-.videoSpotlight-container .col-sm-12:focus .spotlight-image {
-  transform: scale(1.1);
+.videoSpotlight-container .col-sm-12:focus .banner-button {
+  /* transform: scale(1.1); */
+  background: rgba(117, 102, 255, 1);
+  border: 2px solid rgba(117, 102, 255, 1);
 }
 /* End of video spot light CSS  */
 

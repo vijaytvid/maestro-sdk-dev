@@ -39,7 +39,7 @@ function getThemeData() {
 
 function getAppData() {
   console.log("getAppData");
-  let url = `${config.domain}/page/v2/content/slug/${config.slug}`;
+  let url = `${config.domain}/page/v2/content/id/${config.slug}`;
   fetch(url, {
     headers: {
       "x-maestro-client-id": config.clientId,
@@ -59,7 +59,7 @@ function getAppData() {
 
 function screenData() {
   console.log("getAppData");
-  let url = `${config.domain}/page/v2/content/slug/${config.slug}`;
+  let url = `${config.domain}/page/v2/content/id/${config.slug}`;
   fetch(url, {
     headers: {
       "x-maestro-client-id": config.clientId,
@@ -81,7 +81,7 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
   console.log("getVideoSpotLight", id, elementId, rowNumber);
   if (id === "") return;
 
-  let url = `${config.domain}/${config.v3Path}/${id}`;
+  let url = `${config.domain}/video/v3/${id}`;
 
   await fetch(url, {
     method: "GET",
@@ -100,7 +100,7 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
 
       document.getElementById(
         `videoSpotLightTextBox_${rowNumber}`
-      ).innerHTML = `<h3>${result.title}</h3><h>${result.description}</h>`;
+      ).innerHTML = `<h3>${result.title}</h3><h4>${result.description}</h4><div id="row_item_${rowNumber}_1" data-kind="videoSpotlight" tabindex="0" class="focusable banner-button secondary_cta">Watch Now</div>`;
     })
     .catch((error) => {
       console.log(error);
@@ -180,7 +180,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
         rowIndex + 1
       }_0" tabindex="4" data-kind="playlist" style="background-color: #242438"> `;
       if (data["thumbnail"] !== undefined)
-        src += `<img src="https://api.maestro.io${data["thumbnail"]}" alt="${data["title"]}" />`;
+        src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
       else src += `<h3>${data["title"]}</h3>`;
       src += `</div>`;
       // Process the API response as needed

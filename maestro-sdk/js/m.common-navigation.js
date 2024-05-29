@@ -258,7 +258,7 @@ function set_content_focus(row_num) {
 
   // When menu foucs
   $("[id^=row_]").on("sn:focused", function (e) {
-    console.log(e, this);
+    // console.log(e, this);
     $("#" + e.target.id).ensureVisible(function () {
       SN.focus(this);
     });
@@ -269,7 +269,7 @@ function set_content_focus(row_num) {
   });
 
   $("[id^=row_]").on("sn:enter-down", function (e) {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     PAGE_INDEX = MENU_INDEX = TAB_INDEX = 0;
     var id = (first_page_selected_element = e.target.id);
     let kind = $("#" + e.target.id).attr("data-kind");
