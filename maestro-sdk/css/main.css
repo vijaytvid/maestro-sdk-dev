@@ -239,9 +239,22 @@ table {
 
 .row_heading {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 24px;
   padding: 0 0;
-  height: 3rem;
+  height: 2rem;
+}
+
+.image-gallery-row-heading,
+.playlist-row-heading {
+  color: #ffffff;
+  padding: 0 0;
+  height: 2rem;
+  font-family: "Manrope-Bold";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 2rem;
+  text-align: left;
+  margin: 12px 0;
 }
 
 /* =================================End of Common classes ============================= */
@@ -797,6 +810,13 @@ table {
 }
 .banner-content-description span {
   font-size: 24px !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 32px;
+  max-height: 96px;
 }
 
 .banner-content-buttons {
@@ -867,14 +887,14 @@ table {
 
 /* End od banner CSS */
 
-/* Start of image gallery CSS  */
+/* Start of common item CSS  */
 
 .item-container {
   display: block;
   width: 1810px;
-  height: 400px;
+  height: 408px;
   margin: 0;
-  padding: 2rem 0;
+  padding: 20px 0;
   margin-left: 110px;
 }
 
@@ -884,45 +904,174 @@ table {
   overflow-x: hidden;
 }
 
+/* End of common item CSS  */
+
+/* Start of image gallery CSS  */
+
+.image-gallery-container {
+  display: block;
+  width: 1810px;
+  height: auto;
+  margin: 0;
+  padding: 20px 0;
+  margin-left: 110px;
+}
+
 .image-gallery-slider {
   float: right;
   width: 100000000px;
-  position: absolute;
+  position: relative;
   overflow-x: hidden;
 }
 
-.item-container .col-sm-3 {
+.image-gallery-container .col-sm-3 {
   /* width: 412px; */
   height: 100%;
   margin: 0.2rem 1.5rem 0.2rem 0rem;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
 }
 
-.item-container img {
+.image-gallery-container img {
   width: 100%;
   height: 100%;
-}
-
-.image-gallery-item {
   border: 4px solid transparent;
-  height: 100%;
+  border-radius: 10px;
 }
 
-.image-gallery-item:focus {
+.image-gallery-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.image-gallery-item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.image-gallery-item-label {
+  font-family: "Manrope-Medium";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  height: 16px;
+  color: rgba(243, 247, 255, 1);
+}
+
+.image-gallery-item-title {
+  font-family: "Manrope-Bold";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+  height: 28px;
+  color: rgba(243, 247, 255, 1);
+}
+
+.image-gallery-item-desc {
+  font-family: "Manrope-Regular";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  height: 96px;
+  color: rgba(194, 197, 204, 1);
+}
+
+.image-gallery-item-button {
+  padding: 12px 0;
+}
+
+.image-gallery-item:focus .image-gallery-image-box img {
   border: 4px solid #ffffff;
 }
 
 /* End of image gallery CSS  */
 
 /* Start of playlist CSS  */
+.playlist-container {
+  display: block;
+  width: 1810px;
+  /* height: 408px; */
+  margin: 0;
+  padding: 20px 0;
+  margin-left: 110px;
+}
+
+.playlist-container .col-sm-3 {
+  /* width: 412px; */
+  height: 100%;
+  margin: 0.2rem 1.5rem 0.2rem 0rem;
+  color: #ffffff;
+  display: grid;
+}
+
 .playlist-item-container {
   position: relative;
   overflow-x: hidden;
 }
 
+.playlist-item {
+  height: 100%;
+}
+
+.playlist-image-box {
+  width: 100%;
+  height: 100%;
+}
+
+.playlist-item img {
+  border: 4px solid transparent;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.playlist-item:focus .playlist-image-box img {
+  border: 4px solid #ffffff;
+}
+
+.playlist-item-details {
+  width: 372.8px;
+  height: 90px;
+  margin: 2px;
+  display: grid;
+}
+
+.playlist-item-title {
+  width: 100%;
+  height: 32px;
+  gap: 0px;
+  font-family: "Manrope-Bold";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  color: rgba(243, 247, 255, 1);
+}
+
+.playlist-item-desc {
+  width: 100%;
+  height: 56px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: "Manrope-Regular";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+  color: rgba(194, 197, 204, 1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 32px;
+  max-height: 56px;
+}
 /* End of playlist CSS  */
 
 /* Start of text banner CSS  */

@@ -142,7 +142,7 @@ function getVideoPlayList(playlistId, elementId, rowIndex) {
       .then((response) => {
         console.log(response);
         fetchData(response, elementId, rowIndex);
-        $("#playlistTitle").text(response.title);
+        $(`#playlistTitle_${rowIndex}`).text(response.title);
         // config.appData = response;
         // renderHeader();
       })
@@ -170,7 +170,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
       const data = await response.json();
       console.log(url + " API Response:", data);
       playListArray.push(data);
-      src += `<div class="col-sm-3 focusable image-gallery-item ${
+      src += `<div class="col-sm-3 focusable playlist-item ${
         !data.hasOwnProperty("thumbnail")
           ? "d-flex align-items-center justify-content-center"
           : ""
@@ -178,10 +178,12 @@ async function fetchData(playlistData, elementId, rowIndex) {
         rowIndex - 1
       }_0" data-sn-down="#row_item_${
         rowIndex + 1
-      }_0" tabindex="4" data-kind="playlist" style="background-color: #242438"> `;
+      }_0" tabindex="4" data-kind="playlist"> `;
+      src += `<div class="playlist-image-box" style="background-color: #242438">`;
       if (data["thumbnail"] !== undefined)
         src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
       else src += `<h3>${data["title"]}</h3>`;
+      src += `</div><div class="playlist-item-details"><div class="playlist-item-title">${data["title"]}</div><div class="playlist-item-desc">${data["description"]}</div></div>`;
       src += `</div>`;
       // Process the API response as needed
     } catch (error) {
@@ -189,8 +191,9 @@ async function fetchData(playlistData, elementId, rowIndex) {
     }
     i++;
   }
+  console.log(elementId);
 
-  document.getElementById(elementId).innerHTML = src;
+  document.getElementById("row_1").innerHTML = src;
 }
 
 function updateLoginScreen() {

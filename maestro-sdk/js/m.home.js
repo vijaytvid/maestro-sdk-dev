@@ -65,7 +65,8 @@ function renderHomeScreen() {
   for (let i = 0; i < len; i++) {
     const element = homeData[i];
     let containerCss = "",
-      aspectRatio = "";
+      aspectRatio = "",
+      bannerHeight = ``;
 
     if (i === len - 1) downFocus = ` data-sn-down='null' `;
     else downFocus = ` data-sn-down='#row_item_${rowIndex + 1}_0' `;
@@ -81,12 +82,14 @@ function renderHomeScreen() {
         style = ` style="background-image: url(${homeData[i]["data"]["background"]["desktop"]}); background-size: cover;background-position: center;background-repeat: no-repeat;" `;
       } else style = ` style="background: #000;" `;
 
-      src += `<div class="row banner-container" id="row_${rowIndex}">`;
+      if (i !== 0) bannerHeight = `style="height: 740px;"`;
+
+      src += `<div class="row banner-container" id="row_${rowIndex}" ${bannerHeight}>`;
       if (
         !homeData[i]["data"]["primary_cta"]["show"] &&
         !homeData[i]["data"]["secondary_cta"]["show"]
       ) {
-        src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus} ${downFocus} tabindex="0" class="focusable" >`;
+        src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus}  tabindex="0" class="focusable" >`;
       } else src += `<div class="col-sm-12" ${style} >`;
       // src += `<img id="homeBanner" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
       src += `<div class="banner-content-container banner-overlay" id="bannerButtonBox">`;
@@ -97,7 +100,7 @@ function renderHomeScreen() {
         src += `<div id="row_item_${rowIndex}_0" ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button mb-3 primary_cta" style="font-size: ${homeData[i]["data"]["primary_cta"]["font_size"]}">${homeData[i]["data"]["primary_cta"]["text"]}</div>`;
       }
       if (homeData[i]["data"]["secondary_cta"]["show"]) {
-        src += `<div id="row_item_${rowIndex}_1" ${downFocus} data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button secondary_cta" style="font-size: ${homeData[i]["data"]["secondary_cta"]["font_size"]}">${homeData[i]["data"]["secondary_cta"]["text"]}</div>`;
+        src += `<div id="row_item_${rowIndex}_1"  data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button secondary_cta" style="font-size: ${homeData[i]["data"]["secondary_cta"]["font_size"]}">${homeData[i]["data"]["secondary_cta"]["text"]}</div>`;
       }
 
       src += `</div></div><div class="banner-content-detail-right"></div>`;
@@ -125,6 +128,7 @@ function renderHomeScreen() {
         console.log(
           homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "")
         );
+        // containerCss += "height: 626px; ";
       } else if (
         homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "") ===
         "2/3"
@@ -132,7 +136,7 @@ function renderHomeScreen() {
         console.log(
           homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "")
         );
-        containerCss += "height: 800px; ";
+        // containerCss += "height: 800px; ";
       } else if (
         homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "") ===
         "1/1"
@@ -142,17 +146,29 @@ function renderHomeScreen() {
         );
       }
 
-      src += `<div class="row item-container my-4 padding-left" id="row_${rowIndex}" style="${containerCss}" ><div class="col-sm-12 d-flex image-gallery-slider">`;
+      src += `<div class="row image-gallery-container my-4 padding-left" id="row_${rowIndex}" style="${containerCss}">`;
+      src += `<div class="image-gallery-row-heading">${stripHtmlTags(
+        homeData[i]["data"]["title"]
+      )}</div><div class="col-sm-12 d-flex image-gallery-slider">`;
       let imageGalleryData = homeData[i]["data"]["image_cards"];
       let imgLength = homeData[i]["data"]["image_cards"].length;
       for (let j = 0; j < imgLength; j++) {
-        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="1" style="background-color: #242438"> `;
+        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="1"> `;
+        src += `<div class="image-gallery-image-box" style="background-color: #242438;">`;
         if (imageGalleryData[j]["image"]["desktop"])
           src += `<img src="${imageGalleryData[j]["image"]["desktop"]}" alt="Gallery" style="aspect-ratio: ${aspectRatio};" />`;
         else {
-          src += `${imageGalleryData[j]["label"]} ${imageGalleryData[j]["title"]} ${imageGalleryData[j]["description"]}`;
+          src += `${imageGalleryData[j]["title"]}`;
         }
-        src += `</div>`;
+        src += `</div><div class="image-gallery-item-details"><div class="image-gallery-item-label">${stripHtmlTags(
+          imageGalleryData[j]["label"]
+        )}</div><div class="image-gallery-item-title">${stripHtmlTags(
+          imageGalleryData[j]["title"]
+        )}</div><div class="image-gallery-item-desc">${stripHtmlTags(
+          imageGalleryData[j]["description"]
+        )}</div>`;
+        src += `<div class="image-gallery-item-button"><div id="rowdad" data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button primary_cta">${imageGalleryData[j]["cta"]["text"]}</div></div>`;
+        src += `</div></div>`;
       }
       src += `</div></div>`;
     }
@@ -263,8 +279,8 @@ function renderHomeScreen() {
     }
 
     if (homeData[i]["kind"] === "playlist") {
-      src += `<div class="row item-container playlist-container" style="${containerCss}">`;
-      src += `<h3 class="row_heading" id="playlistTitle">Video Playlist</h3>`;
+      src += `<div class="row playlist-container" style="${containerCss}">`;
+      src += `<h3 class="playlist-row-heading" id="playlistTitle_${rowIndex}">Video Playlist</h3>`;
       src += `<div class="col-sm-12 p-0 d-flex align-items-center playlist-item-container" id="row_${rowIndex}">`;
       src += `</div></div>`;
 
