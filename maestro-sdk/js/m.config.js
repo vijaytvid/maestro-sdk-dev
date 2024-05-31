@@ -11,7 +11,7 @@
 //AFL
 window.config = {
   domain: "https://api.maestro.io",
-  siteId: "5c09513f58dfae005af67a20",
+  siteId: "65a1887a032bbc0743d375c1",
   clientId: "65a1887a032bbc0743d375c1",
   developerKey:
     "0957be7bf77fd8ef3c22c260ee072c75292adf5a3bd448ffdc42a6b5544ae0fd046a6dd9ee60ab58e5458bb0d4a10a80",

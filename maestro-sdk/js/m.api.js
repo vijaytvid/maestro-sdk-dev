@@ -1,7 +1,7 @@
-var site_data = {};
-var theme_data = {};
-var app_data = {};
-var playListArray = [];
+var site_data = {},
+  theme_data = {},
+  app_data = {},
+  playListArray = [];
 
 function getSiteData() {
   console.log("getSiteData");
@@ -30,7 +30,11 @@ function getThemeData() {
     .then((response) => {
       console.log(response);
       theme_data = response;
-      $("body").css("font-family", theme_data.typography.body);
+      document.getElementsByTagName("body")[0].style.fontFamily =
+        theme_data.typography.body;
+      document.getElementById(
+        "maestro-container"
+      ).style.backgroundImage = `url('${theme_data.desktopBackground}')`;
     })
     .catch((error) => {
       console.log(error);
@@ -79,6 +83,7 @@ function screenData() {
 
 async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
   console.log("getVideoSpotLight", id, elementId, rowNumber);
+
   if (id === "") return;
 
   let url = `${config.domain}/video/v3/${id}`;
@@ -93,17 +98,23 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
     .then((response) => response.text())
     .then((result) => {
       console.log(result);
-      result = JSON.parse(result);
-      var div = document.getElementById(elementId);
-      var img = div.querySelector("img");
-      img.setAttribute("src", result.thumbnail);
+      var resp = JSON.parse(result);
+      setTimeout(() => {
+        var div = document.getElementById(
+          `videoSpotLightThumbnailBox_${rowNumber}`
+        );
 
-      document.getElementById(
-        `videoSpotLightTextBox_${rowNumber}`
-      ).innerHTML = `<h3>${result.title}</h3><h4>${result.description}</h4><div id="row_item_${rowNumber}_1" data-kind="videoSpotlight" tabindex="0" class="focusable banner-button secondary_cta">Watch Now</div>`;
+        var img = div.getElementsByTagName("img")[0];
+        img.setAttribute("src", resp.thumbnail);
+
+        document.getElementById(
+          `videoSpotLightTextBox_${rowNumber}`
+        ).innerHTML = `<h3>${resp.title}</h3><h4>${resp.description}</h4><div data-kind="videoSpotlight" class="banner-button secondary_cta">Watch Now</div>`;
+      }, 3000);
     })
     .catch((error) => {
       console.log(error);
+      console.log();
     });
 }
 
@@ -129,11 +140,11 @@ function getTopNavigationData() {
   }
 }
 
-function getVideoPlayList(playlistId, elementId, rowIndex) {
+async function getVideoPlayList(playlistId, elementId, rowIndex) {
   console.log("getAppData", playlistId, elementId);
   let url = `${config.domain}/playlist/v1/${playlistId}`;
   try {
-    fetch(url, {
+    await fetch(url, {
       headers: {
         "x-maestro-client-id": config.clientId,
       },
@@ -142,7 +153,6 @@ function getVideoPlayList(playlistId, elementId, rowIndex) {
       .then((response) => {
         console.log(response);
         fetchData(response, elementId, rowIndex);
-        $(`#playlistTitle_${rowIndex}`).text(response.title);
         // config.appData = response;
         // renderHeader();
       })
@@ -178,7 +188,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
         rowIndex - 1
       }_0" data-sn-down="#row_item_${
         rowIndex + 1
-      }_0" tabindex="4" data-kind="playlist"> `;
+      }_0" tabindex="${rowIndex}" data-kind="playlist"> `;
       src += `<div class="playlist-image-box" style="background-color: #242438">`;
       if (data["thumbnail"] !== undefined)
         src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
@@ -192,8 +202,9 @@ async function fetchData(playlistData, elementId, rowIndex) {
     i++;
   }
   console.log(elementId);
-
-  document.getElementById("row_1").innerHTML = src;
+  document.getElementById(`playlistTitle_${rowIndex}`).innerText =
+    playlistData.title;
+  document.getElementById(elementId).innerHTML = src;
 }
 
 function updateLoginScreen() {

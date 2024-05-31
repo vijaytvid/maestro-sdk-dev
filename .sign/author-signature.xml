@@ -69,8 +69,8 @@ Ov0vriJyCg==</DigestValue>
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>kp7s0hpOnUJ9NiFL1hGv3i0hccEjuqiBnWe8DnijzJga8VyofedEcfivYLQTy6OMig8SXxr3+lD1
-IzGv5w5+oQ==</DigestValue>
+<DigestValue>iL6bhq+zkjxrRMl7KbTrQRbN0viJsMldKUGgWDVDO95ARxePBeIUlKd31ybPSgDPeeSaqdkZTeMx
+QjqsveIwbg==</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -84,18 +84,18 @@ XPU8q5DlGw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.api.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>B4MMANR+VG8mgrprzknLbbr43EeGb/Hl7x0OqXECPiljsjpuazgkqxsU6UhRCs5Gbt6llAkjp5s5
-+sHlo0jj4w==</DigestValue>
+<DigestValue>joNOzTlN2vhs9E8tQf7KLJTb7KcJoEKH778CZIS3o38/xIWB7MlP6ZpprN4FpCimT7982QujT+tX
+P/S4uZJ+pg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.common-navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>amshEpAt1tQXfjEQkIzup11abpuOkT749af8Jw+bEtxw3T2j3J2rAr/EatMysOWhZb5NL/5acHHT
-yyk+riavgg==</DigestValue>
+<DigestValue>sL4qrKX7Mqv7zfkRhji9gycWiBUfBVMwg2IRlgnsFQsOMbMWFBKzIn/dVSK9Kh74zOXtEcI6imdF
+x4LU6gU38A==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.config.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>POr5D5QR5AiAChs+MHheaC2pLc6hfTLommy6jwasHLRq/bYzt4qbjfwrokFiXxSiV5rsEO1g8jk3
-pozVCSvfMw==</DigestValue>
+<DigestValue>3jEnb7j1Q/ZX4mMzIfCB301r93gtKo/KuySTlKRavhgM04Sw1yjqAV5hblB8vYxGti3xGGpWqik0
+7wRPhLSSYw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.fetch-instance.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -104,8 +104,8 @@ hpvZLP7vow==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.home.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>8qHock/DHkv90/iIbIXNWzXFEx4JtjIsCFb5NuFANGglbU2QtqSmtP7uY4943MRNKtCpiZzz2Hf6
-c48c/IzESA==</DigestValue>
+<DigestValue>xCOHSry1GTRHoG7G4xyxxlNOjX2tqOgh5MvhC3wtriJtrZlA3xl/AtrTz0X9t03kJM0sQoIs8Kek
+Q+7WFDZvUQ==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -119,8 +119,8 @@ MQYd0H8/Fg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.utils.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>1IOQVOUvKFEtFOnPQ95G+VohnyY7sVS06AC/YM+FCbgvzcEemN727xfGGZ5B27MZt739/jwc9YRC
-9iwioCq49g==</DigestValue>
+<DigestValue>CMEH4O2fSEDSpUilsI0eakfqWZHZuu9wvkEOcdDlzbW9W7NaUyAnso5BXSrq7R5rYKM9xVEgqV9h
+vP+EY0WXLg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.video-player.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -362,15 +362,15 @@ XE5j7ZQw3g==</DigestValue>
 <DigestValue>tgJHkiyHB9dhpP4b9697WP5DdKoRG6aQ8KIDACv+1hvV+bEnaqtSspFyLGn7W6SIZAGOftFk8vuM
 2UFpdp0pOQ==</DigestValue>
 </Reference>
+<Reference URI="maestro-sdk%2Flib%2Fnavigation%2Fnavigation-utils.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>fhTLdfYeoOE3Z96dOZTmfGgTsQ0h/juC979Ivxno5vileLTZSFt6MHWioE+By7iOE7DqnaAi1Scz
+dLz9at5fpg==</DigestValue>
+</Reference>
 <Reference URI="maestro-sdk%2Flib%2Fnavigation%2Fspatial_navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
 <DigestValue>gNTW/EDOSbCkP8ypdNXqosJ6TndyNneBBJ5WkcO/JPePHCZJ6u7ghjfGuxbpPbHZ3BUyXXDGJgYd
 oqJ7LPkBVw==</DigestValue>
-</Reference>
-<Reference URI="maestro-sdk%2Flib%2Fnavigation%2Futil.js">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>MX6nvy7HACgrfaXyenOG8B/Id99HX3Qx5dwitI6qA1uxUD3Jn8B84nv6IPdc7LR4Zhu5gMXPEZhd
-WCr353eMlA==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Flib%2Fplayer%2Fvideojs.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -447,11 +447,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-G7d2nB4IcSauhalMUtE33DThLYorqwvh+zUydgXvy65cGXfwi0+Pffxfwh3MYPqcHvz6vHuqj/1N
-8fB9vyyb2Oav6SBxDrfeqMIRlO240fpLErxnzWqeuA13IVTihX21vqfVt68Z+uziB2qermOTXOB5
-qWO7hmRn2jnDQHKTkxK0IRcy6pR+e0/6y9CkmT69j8xHOi4Sq8Rl3+lQK3PyZsxXOMBXwjIz0f1B
-MXiQEHjlH+n4lL62Jw6zldp1B5E29XGfdDQCYfxfuYj2PizLkNx0TwhhiewH20CIOJL0jUZGs4O9
-zLintAWW4Nliz3pTiEN1MJilWt0++DtB2zB8iQ==
+Iash5KuVLZCifBLYF0DzqefCVVwCFPQ4xhogq3IZrkH8h9frSwKKcp6wnvZhZobsQiPit6iZMS7D
+s1rUYLWla7QYDrQIJft3IH6JoSNjw+rPzKiNGb+2/pg0MSiTRNXEJlSHzlUVzVpAsr+RoQ4deRmY
+6AVyeppBoiy8xT4QE6xMdZmMWe8T87Y/vay2fQzK0x2ielD4+Lc7Wh/teMANId5dGkIYH1QVkRTl
+iX0Xr8cD/PlmM1yQJqxVLPA303B53ucMpZEi+aDopKS92SDdIAeCupslunpLVEV0wfL8pUY1GQb3
+Kx9a/AJeJLC8V2OGRMfrtvchZutYPMTKQTvexQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

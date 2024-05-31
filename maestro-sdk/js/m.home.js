@@ -1,4 +1,5 @@
 var playlistContainer = "";
+
 function renderHeader() {
   console.log("renderHeader", app_data, page_index);
   document.getElementById("headerLogo").src =
@@ -51,12 +52,12 @@ function renderTopNavigation(topNavData) {
   manage_spatial_navigation("navigation_container");
 }
 
-function renderHomeScreen() {
+async function renderHomeScreen() {
   const homeData = app_data.channel.data.landing_content;
   console.log("renderHomeScreen", homeData);
   let len = homeData.length;
   let src = "";
-  let rowIndex = 0;
+  var rowIndex = 0;
   let downFocus = "";
   let upFocus = "";
 
@@ -66,7 +67,8 @@ function renderHomeScreen() {
     const element = homeData[i];
     let containerCss = "",
       aspectRatio = "",
-      bannerHeight = ``;
+      bannerHeight = "",
+      style = "";
 
     if (i === len - 1) downFocus = ` data-sn-down='null' `;
     else downFocus = ` data-sn-down='#row_item_${rowIndex + 1}_0' `;
@@ -74,7 +76,8 @@ function renderHomeScreen() {
     if (i > 0) upFocus = ` data-sn-up='#row_item_${rowIndex - 1}_0' `;
     else if (i == 0) upFocus = ` data-sn-up='#nav_0' `;
 
-    let style = "";
+    console.log("downFocus ==>", downFocus);
+    console.log("upFocus ==>", upFocus);
 
     //Hero banner
     if (homeData[i]["kind"] === "heroBanner") {
@@ -89,18 +92,19 @@ function renderHomeScreen() {
         !homeData[i]["data"]["primary_cta"]["show"] &&
         !homeData[i]["data"]["secondary_cta"]["show"]
       ) {
-        src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus}  tabindex="0" class="focusable" >`;
+        src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus}  tabindex="${rowIndex}" class="focusable" >`;
       } else src += `<div class="col-sm-12" ${style} >`;
       // src += `<img id="homeBanner" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
       src += `<div class="banner-content-container banner-overlay" id="bannerButtonBox">`;
-      src += `<div class="banner-content-detail-box"><div class="banner-content-detail-left"><div class="banner-content-title">${homeData[i]["data"]["title"]["raw_data"]} </div><div class="banner-content-description">${homeData[i]["data"]["description"]["raw_data"]}</div></div>`;
+      src += `<div class="banner-content-detail-box"><div class="banner-content-detail-left"><div class="banner-content-title">${homeData[i]["data"]["title"]["raw_data"]}</div><div class="banner-content-description">${homeData[i]["data"]["description"]["raw_data"]}</div></div>`;
       src += `<div class="banner-content-buttons">`;
 
       if (homeData[i]["data"]["primary_cta"]["show"]) {
-        src += `<div id="row_item_${rowIndex}_0" ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button mb-3 primary_cta" style="font-size: ${homeData[i]["data"]["primary_cta"]["font_size"]}">${homeData[i]["data"]["primary_cta"]["text"]}</div>`;
+        src += `<div id="row_item_${rowIndex}_0" ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}" class="focusable banner-button mb-3 primary_cta" style="font-size: ${homeData[i]["data"]["primary_cta"]["font_size"]}">${homeData[i]["data"]["primary_cta"]["text"]}</div>`;
       }
+
       if (homeData[i]["data"]["secondary_cta"]["show"]) {
-        src += `<div id="row_item_${rowIndex}_1"  data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button secondary_cta" style="font-size: ${homeData[i]["data"]["secondary_cta"]["font_size"]}">${homeData[i]["data"]["secondary_cta"]["text"]}</div>`;
+        src += `<div id="row_item_${rowIndex}_1"  data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}" class="focusable banner-button secondary_cta" style="font-size: ${homeData[i]["data"]["secondary_cta"]["font_size"]}">${homeData[i]["data"]["secondary_cta"]["text"]}</div>`;
       }
 
       src += `</div></div><div class="banner-content-detail-right"></div>`;
@@ -153,8 +157,12 @@ function renderHomeScreen() {
       let imageGalleryData = homeData[i]["data"]["image_cards"];
       let imgLength = homeData[i]["data"]["image_cards"].length;
       for (let j = 0; j < imgLength; j++) {
-        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="1"> `;
-        src += `<div class="image-gallery-image-box" style="background-color: #242438;">`;
+        let defaultBg = `style="background-color: #242438;"`;
+
+        if (imageGalleryData[j]["image"]["desktop"]) defaultBg = "";
+
+        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
+        src += `<div class="image-gallery-image-box" ${defaultBg}>`;
         if (imageGalleryData[j]["image"]["desktop"])
           src += `<img src="${imageGalleryData[j]["image"]["desktop"]}" alt="Gallery" style="aspect-ratio: ${aspectRatio};" />`;
         else {
@@ -167,7 +175,7 @@ function renderHomeScreen() {
         )}</div><div class="image-gallery-item-desc">${stripHtmlTags(
           imageGalleryData[j]["description"]
         )}</div>`;
-        src += `<div class="image-gallery-item-button"><div id="rowdad" data-kind="${homeData[i]["kind"]}" tabindex="0" class="focusable banner-button primary_cta">${imageGalleryData[j]["cta"]["text"]}</div></div>`;
+        src += `<div class="image-gallery-item-button"><div id="rowdad" data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}" class="focusable banner-button primary_cta">${imageGalleryData[j]["cta"]["text"]}</div></div>`;
         src += `</div></div>`;
       }
       src += `</div></div>`;
@@ -182,7 +190,7 @@ function renderHomeScreen() {
         if (pagesData[j]["image"]) {
           style = ` style="background: none;" `;
         } else style = ``;
-        src += `<div class="col-sm-3 focusable page-row-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="1" ${style}> `;
+        src += `<div class="col-sm-3 focusable page-row-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="${rowIndex}" ${style}> `;
         if (pagesData[j]["image"])
           src += `<img src="${pagesData[j]["image"]}" alt="bg">`;
 
@@ -201,7 +209,7 @@ function renderHomeScreen() {
       if (homeData[i]["data"]["cta"]["show"]) {
         src += `<div class="col-sm-12"><div class="textbanner_content">`;
       } else
-        src += `<div class="col-sm-12 focusable" tabindex="2" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}"><div class="textbanner_content">`;
+        src += `<div class="col-sm-12 focusable" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}"><div class="textbanner_content">`;
 
       if (homeData[i]["data"]["background"]["desktop"]) {
         src += `<img id="textBanner_${rowIndex}" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
@@ -209,7 +217,7 @@ function renderHomeScreen() {
       src += `<div class="text-banner-overlay" style="float: ${homeData[i]["data"]["alignment"]["horizontal"]}; text-align: ${homeData[i]["data"]["alignment"]["horizontal"]}"><div class="textbanner_sub_heading">${homeData[i]["data"]["label"]["raw_data"]}</div><div class="textbanner_title">${homeData[i]["data"]["title"]["raw_data"]}</div><div class="textbanner_description">${homeData[i]["data"]["subtitle"]["raw_data"]}</div>`;
       src += `<div class="textbanner_buttons">`;
       if (homeData[i]["data"]["cta"]["show"]) {
-        src += `<div class="banner-button textbanner_button primary_cta focusable" tabindex="2" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="font-size: ${homeData[i]["data"]["cta"]["font_size"]}" >${homeData[i]["data"]["cta"]["text"]}</div></div >`;
+        src += `<div class="banner-button textbanner_button primary_cta focusable" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="font-size: ${homeData[i]["data"]["cta"]["font_size"]}" >${homeData[i]["data"]["cta"]["text"]}</div></div >`;
       } else {
         src += `<div class="banner-button textbanner_button primary_cta" style="font-size: ${homeData[i][" data"]["cta"]["font_size"]}" >${homeData[i]["data"]["cta"]["text"]}</div></div >`;
       }
@@ -229,20 +237,20 @@ function renderHomeScreen() {
         responsiveStyle = "d-flex flex-wrap ";
       } else if (homeData[i]["data"]["layout"] === "stacked") {
         stackedStyle += ` display:grid; place-items:center; height: 800px; `;
-        style += ` height: 800px;display: grid;place-items:center; `;
+        style += ` height: 800px;display: flex;flex-direction: column;align-items:center; `;
       }
 
       src += `<div class="row text-banner-container videoSpotlight-container" id="row_${rowIndex}" style="${containerCss} ${stackedStyle}">`;
-      src += `<div class="col-sm-12 focusable ${responsiveStyle}" tabindex="2" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="${style}">`;
-      src += `<div class="col-sm-6 py-4 text-center" id="videoSpotLightThumbnailBox_${i}">`;
+      src += `<div class="col-sm-12 focusable ${responsiveStyle}" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="${style}">`;
+      src += `<div class="col-sm-6 py-4 text-center" id="videoSpotLightThumbnailBox_${rowIndex}">`;
       src += `<div class="image-wrapper"><img class="spotlight-image" src="" alt="${homeData[i]["kind"]}" /></div>`;
       src += `</div>`;
       src += `<div class="col-sm-6 d-flex align-self-center">`;
-      src += `<div class="videospotlight-text-box" id="videoSpotLightTextBox_${rowIndex}" style="display:grid; place-items: ${homeData[i]["data"]["alignment"]}">`;
+      src += `<div class="videospotlight-text-box" id="videoSpotLightTextBox_${rowIndex}" style="display:grid;place-items: ${homeData[i]["data"]["alignment"]}">`;
       // src += `<p>${homeData[i]["data"]["label"]["raw_data"]}</p><p>${homeData[i]["data"]["title"]["raw_data"]}</p>`;
       src += `</div>`;
       src += `</div></div></div>`;
-      getVideoSpotLight(
+      await getVideoSpotLight(
         homeData[i]["data"]["video_id"],
         `row_${rowIndex}`,
         rowIndex
@@ -259,7 +267,7 @@ function renderHomeScreen() {
           : "flex-wrap"
       }  align-items-center" style="flex-direction: ${
         homeData[i]["data"]["layout"] === "left" ? "row-reverse" : "unset"
-      };" id="row_item_${rowIndex}_0" tabindex="3" ${downFocus} ${upFocus} data-kind="${
+      };" id="row_item_${rowIndex}_0" tabindex="${rowIndex}" ${downFocus} ${upFocus} data-kind="${
         homeData[i]["kind"]
       }">`;
       src += `<div class="col-sm-6 flex-fill py-4 text-center" id="imageAndText_${i}"><div class="text-image-wrapper">`;
@@ -274,22 +282,22 @@ function renderHomeScreen() {
       src += `<div class="image-text-box" style="float: ${homeData[i]["data"]["alignment"]}; text-align: ${homeData[i]["data"]["alignment"]};">${homeData[i]["data"]["title"]["raw_data"]} ${homeData[i]["data"]["description"]["raw_data"]}`;
       src += `</div>`;
       src += `<div class="button-container py-4 text-${homeData[i]["data"]["alignment"]}" id="imageAndText_${i}">`;
-      src += `<div id="imageTextButton" tabindex="2" class="banner-button primary_cta"  style="font-size: ${homeData[i]["data"]["cta"]["font_size"]}">${homeData[i]["data"]["cta"]["text"]}</div>`;
+      src += `<div id="imageTextButton" tabindex="${rowIndex}" class="banner-button primary_cta"  style="font-size: ${homeData[i]["data"]["cta"]["font_size"]}">${homeData[i]["data"]["cta"]["text"]}</div>`;
       src += `</div></div></div></div>`;
     }
 
     if (homeData[i]["kind"] === "playlist") {
-      src += `<div class="row playlist-container" style="${containerCss}">`;
+      src += `<div class="row playlist-container" style="${containerCss}" id="row_${rowIndex}">`;
       src += `<h3 class="playlist-row-heading" id="playlistTitle_${rowIndex}">Video Playlist</h3>`;
-      src += `<div class="col-sm-12 p-0 d-flex align-items-center playlist-item-container" id="row_${rowIndex}">`;
+      src += `<div class="col-sm-12 p-0 d-flex align-items-center playlist-item-container" id="playlist_row_${rowIndex}">`;
       src += `</div></div>`;
 
-      getVideoPlayList(
+      await getVideoPlayList(
         homeData[i]["playlist"]["_id"],
-        `row_${rowIndex}`,
+        `playlist_row_${rowIndex}`,
         rowIndex
       );
-      playlistContainer = `row_${rowIndex}`;
+      playlistContainer = `playlist_row_${rowIndex}`;
     }
 
     // if (i === len - 1 && homeData[0]["kind"] === "heroBanner") {

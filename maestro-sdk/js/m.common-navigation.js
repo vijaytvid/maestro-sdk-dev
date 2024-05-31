@@ -258,10 +258,21 @@ function set_content_focus(row_num) {
 
   // When menu foucs
   $("[id^=row_]").on("sn:focused", function (e) {
-    // console.log(e, this);
-    $("#" + e.target.id).ensureVisible(function () {
-      SN.focus(this);
-    });
+    console.log(e.target.id);
+    // $("#" + e.target.id).ensureVisible(function () {
+    //   SN.focus(this);
+    // });
+
+    var $idString = e.target.id.split("_");
+    // var $parent = $(`#row_${$idString[2]}`);
+    // const rowElement = document.getElementById(`row_${$idString[2]}`);
+    smoothScrollToRow(`row_${$idString[2]}`);
+    // rowElement.scrollIntoView({
+    //   behavior: "smooth", // Smooth scroll
+    //   block: "start", // Align to the top of homeContainer
+    //   inline: "nearest",
+    // });
+
     PAGE_INDEX = MENU_INDEX = TAB_INDEX = 0;
     var id = (first_page_focused_element = e.target.id);
     // if (!$(".menu_container").hasClass("toggle_menu"))
@@ -287,6 +298,12 @@ function set_content_focus(row_num) {
       screenData();
     }
   });
+
+  // $("[id^=row_]").on("sn:willfocus", function (e) {
+  //   console.log("willfocus", e.target.id);
+  //   var $idString = e.target.id.split("_");
+  //   smoothScrollToRow(`row_${$idString[2]}`);
+  // });
 }
 
 function focus_video_list(index) {
