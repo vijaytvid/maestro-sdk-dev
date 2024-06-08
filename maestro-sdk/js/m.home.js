@@ -2,15 +2,13 @@ var playlistContainer = "";
 
 function renderHeader() {
   console.log("renderHeader", app_data, page_index);
-  document.getElementById("headerLogo").src =
-    app_data.channel.data.artwork.header.logo;
+  document.getElementById("headerLogo").src = app_data.data.artwork.header.logo;
   document.getElementById("headerLogo").alt =
-    app_data.channel.data.artwork.header.logo_title;
+    app_data.data.artwork.header.logo_title;
   // document.getElementById("headerTitle").innerText =
   //   app_data.data.artwork.header.logo_title;
 
-  document.getElementById("loginLogo").src =
-    app_data.channel.data.artwork.header.logo;
+  document.getElementById("loginLogo").src = app_data.data.artwork.header.logo;
 
   getTopNavigationData();
   renderHomeScreen();
@@ -53,13 +51,15 @@ function renderTopNavigation(topNavData) {
 }
 
 async function renderHomeScreen() {
-  const homeData = app_data.channel.data.landing_content;
+  const homeData = app_data.data.landing_content;
   console.log("renderHomeScreen", homeData);
   let len = homeData.length;
   let src = "";
   var rowIndex = 0;
-  let downFocus = "";
-  let upFocus = "";
+  let downFocus = "",
+    upFocus = "",
+    rightFocus = "",
+    leftFocus = "";
 
   src += `<div class="container-fluid p-0">`;
 
@@ -68,7 +68,10 @@ async function renderHomeScreen() {
     let containerCss = "",
       aspectRatio = "",
       bannerHeight = "",
-      style = "";
+      style = "",
+      id = "";
+
+    id = ` id="row_item_${rowIndex}_0" `;
 
     if (i === len - 1) downFocus = ` data-sn-down='null' `;
     else downFocus = ` data-sn-down='#row_item_${rowIndex + 1}_0' `;
@@ -83,11 +86,11 @@ async function renderHomeScreen() {
     if (homeData[i]["kind"] === "heroBanner") {
       if (homeData[i]["data"]["background"]["desktop"]) {
         style = ` style="background-image: url(${homeData[i]["data"]["background"]["desktop"]}); background-size: cover;background-position: center;background-repeat: no-repeat;" `;
-      } else style = ` style="background: #000;" `;
+      } else style = ` style="background: #12141a;" `;
 
       if (i !== 0) bannerHeight = `style="height: 740px;"`;
 
-      src += `<div class="row banner-container" id="row_${rowIndex}" ${bannerHeight}>`;
+      src += `<div class="row banner-container" id="row_${rowIndex}" data-row-kind="${homeData[i]["kind"]}" ${bannerHeight}>`;
       if (
         !homeData[i]["data"]["primary_cta"]["show"] &&
         !homeData[i]["data"]["secondary_cta"]["show"]
@@ -95,8 +98,12 @@ async function renderHomeScreen() {
         src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus}  tabindex="${rowIndex}" class="focusable" >`;
       } else src += `<div class="col-sm-12" ${style} >`;
       // src += `<img id="homeBanner" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
-      src += `<div class="banner-content-container banner-overlay" id="bannerButtonBox">`;
-      src += `<div class="banner-content-detail-box"><div class="banner-content-detail-left"><div class="banner-content-title">${homeData[i]["data"]["title"]["raw_data"]}</div><div class="banner-content-description">${homeData[i]["data"]["description"]["raw_data"]}</div></div>`;
+      src += `<div class="banner-content-container banner-overlay main-content-box" id="bannerButtonBox">`;
+      src += `<div class="banner-content-detail-box"><div class="banner-content-detail-left"><div class="banner-content-title">${stripHtmlTags(
+        homeData[i]["data"]["title"]["raw_data"]
+      )}</div><div class="banner-content-description">${stripHtmlTags(
+        homeData[i]["data"]["description"]["raw_data"]
+      )}</div></div>`;
       src += `<div class="banner-content-buttons">`;
 
       if (homeData[i]["data"]["primary_cta"]["show"]) {
@@ -110,6 +117,8 @@ async function renderHomeScreen() {
       src += `</div></div><div class="banner-content-detail-right"></div>`;
 
       src += `</div></div></div>`;
+
+      rowIndex++;
     }
 
     // if (i === 0 && homeData[i]["kind"] === "heroBanner") {
@@ -150,66 +159,100 @@ async function renderHomeScreen() {
         );
       }
 
-      src += `<div class="row image-gallery-container my-4 padding-left" id="row_${rowIndex}" style="${containerCss}">`;
+      src += `<div class="row image-gallery-container my-4" id="row_${rowIndex}" style="${containerCss}"><div class="main-content-box" style="height: 740px;">`;
       src += `<div class="image-gallery-row-heading">${stripHtmlTags(
         homeData[i]["data"]["title"]
       )}</div><div class="col-sm-12 d-flex image-gallery-slider">`;
       let imageGalleryData = homeData[i]["data"]["image_cards"];
       let imgLength = homeData[i]["data"]["image_cards"].length;
       for (let j = 0; j < imgLength; j++) {
+        if (j === imgLength - 1) rightFocus = ` data-sn-right='null' `;
+        else rightFocus = ` data-sn-right='#row_item_${rowIndex}_${j + 1}' `;
+
+        if (j > 0)
+          leftFocus = ` data-sn-left='#row_item_${rowIndex}_${j - 1}' `;
+        else if (j == 0) leftFocus = ``;
+
         let defaultBg = `style="background-color: #242438;"`;
 
         if (imageGalleryData[j]["image"]["desktop"]) defaultBg = "";
 
-        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
+        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus}  ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
         src += `<div class="image-gallery-image-box" ${defaultBg}>`;
         if (imageGalleryData[j]["image"]["desktop"])
           src += `<img src="${imageGalleryData[j]["image"]["desktop"]}" alt="Gallery" style="aspect-ratio: ${aspectRatio};" />`;
         else {
           src += `${imageGalleryData[j]["title"]}`;
         }
-        src += `</div><div class="image-gallery-item-details"><div class="image-gallery-item-label">${stripHtmlTags(
-          imageGalleryData[j]["label"]
-        )}</div><div class="image-gallery-item-title">${stripHtmlTags(
-          imageGalleryData[j]["title"]
-        )}</div><div class="image-gallery-item-desc">${stripHtmlTags(
-          imageGalleryData[j]["description"]
-        )}</div>`;
-        src += `<div class="image-gallery-item-button"><div id="rowdad" data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}" class="focusable banner-button primary_cta">${imageGalleryData[j]["cta"]["text"]}</div></div>`;
+        src += `</div>`;
+
+        src += `<div class="image-gallery-item-details">`;
+
+        if (homeData[i]["data"]["show_label"])
+          src += `<div class="image-gallery-item-label">${stripHtmlTags(
+            imageGalleryData[j]["label"]
+          )}</div>`;
+
+        if (homeData[i]["data"]["show_title"])
+          src += `<div class="image-gallery-item-title">${stripHtmlTags(
+            imageGalleryData[j]["title"]
+          )}</div>`;
+
+        if (homeData[i]["data"]["show_description"])
+          src += `<div class="image-gallery-item-desc">${stripHtmlTags(
+            imageGalleryData[j]["description"]
+          )}</div>`;
+
+        if (homeData[i]["data"]["show_cta"])
+          src += `<div class="image-gallery-item-button"><div id="rowdad" data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}" class="focusable banner-button primary_cta">${imageGalleryData[j]["cta"]["text"]}</div></div>`;
         src += `</div></div>`;
       }
-      src += `</div></div>`;
+      src += `</div></div></div>`;
+
+      rowIndex++;
     }
 
     if (homeData[i]["kind"] === "pagesRow") {
-      src += `<div class="row item-container padding-left my-4" id="row_${rowIndex}" syle="${containerCss}"><h3 class="row_heading">${homeData[i]["title_text"]}</h3><div class="col-sm-12 p-0 d-flex pages-row-slider">`;
+      src += `<div class="row item-container" id="row_${rowIndex}" data-row-kind="${homeData[i]["kind"]}" syle="${containerCss}"><div class="main-content-box"><div class="page-row-box"><div class="row_heading">${homeData[i]["title_text"]}</div><div class="col-sm-12 p-0 d-flex pages-row-slider">`;
       let pagesData = homeData[i]["pages"];
       let pageLength = pagesData.length;
       let style = "";
       for (let j = 0; j < pageLength; j++) {
-        if (pagesData[j]["image"]) {
-          style = ` style="background: none;" `;
-        } else style = ``;
-        src += `<div class="col-sm-3 focusable page-row-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="${rowIndex}" ${style}> `;
-        if (pagesData[j]["image"])
-          src += `<img src="${pagesData[j]["image"]}" alt="bg">`;
+        if (j === pageLength - 1) rightFocus = ` data-sn-right='null' `;
+        else rightFocus = ` data-sn-right='#row_item_${rowIndex}_${j + 1}' `;
 
-        if (pagesData[j]["page"]["seo"]["title"])
-          src += `<div class="item-title">${pagesData[j]["page"]["seo"]["title"]}</div>`;
-        else {
-          src += `<div class="item-title">Default</div>`;
+        if (j > 0)
+          leftFocus = ` data-sn-left='#row_item_${rowIndex}_${j - 1}' `;
+        else if (j == 0) leftFocus = ``;
+
+        src += `<div class="col-sm-3 focusable page-row-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="${rowIndex}"> `;
+
+        if (pagesData[j]["image"]) {
+          style = ` style="background-image: url(${pagesData[j]["image"]});background-size: cover;background-position: center;background-repeat: no-repeat;" `;
         }
+
+        src += `<div class="page-row-item-inner" ${style}><div class="item-title">${
+          pagesData[j]["page"]["seo"]["title"] ?? ""
+        }</div></div>`;
+
+        // if (pagesData[j]["page"]["seo"]["title"])
+        //   src += `<div class="item-title">${pagesData[j]["page"]["seo"]["title"]}</div>`;
+        // else {
+        //   src += `<div class="item-title">Default</div>`;
+        // }
         src += `</div>`;
       }
-      src += `</div></div>`;
+      src += `</div></div></div></div>`;
+
+      rowIndex++;
     }
 
     if (homeData[i]["kind"] === "textBanner") {
       src += `<div class="row text-banner-container" id="row_${rowIndex}" style="background-color: ${homeData[i]["data"]["background"]["custom_color"]}; ${containerCss}">`;
       if (homeData[i]["data"]["cta"]["show"]) {
-        src += `<div class="col-sm-12"><div class="textbanner_content">`;
+        src += `<div class="main-content-box"><div class="textbanner_content">`;
       } else
-        src += `<div class="col-sm-12 focusable" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}"><div class="textbanner_content">`;
+        src += `<div class="main-content-box focusable" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}"><div class="textbanner_content">`;
 
       if (homeData[i]["data"]["background"]["desktop"]) {
         src += `<img id="textBanner_${rowIndex}" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
@@ -222,6 +265,8 @@ async function renderHomeScreen() {
         src += `<div class="banner-button textbanner_button primary_cta" style="font-size: ${homeData[i][" data"]["cta"]["font_size"]}" >${homeData[i]["data"]["cta"]["text"]}</div></div >`;
       }
       src += `</div></div></div></div>`;
+
+      rowIndex++;
     }
 
     if (homeData[i]["kind"] === "videoSpotlight") {
@@ -240,8 +285,10 @@ async function renderHomeScreen() {
         style += ` height: 800px;display: flex;flex-direction: column;align-items:center; `;
       }
 
-      src += `<div class="row text-banner-container videoSpotlight-container" id="row_${rowIndex}" style="${containerCss} ${stackedStyle}">`;
-      src += `<div class="col-sm-12 focusable ${responsiveStyle}" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="${style}">`;
+      style += `padding: 60px 60px 60px 110px;`;
+
+      src += `<div class="row videoSpotlight-container" id="row_${rowIndex}" id="row_${rowIndex}" style="${containerCss} ${stackedStyle}" >`;
+      src += `<div class="col-sm-12 focusable ${responsiveStyle}" tabindex="${rowIndex}" id="row_item_${rowIndex}_0" ${downFocus} ${upFocus} data-kind="${homeData[i]["kind"]}" style="${style}"><div class="main-content-box videoSpotlight-inner-box ${responsiveStyle} ">`;
       src += `<div class="col-sm-6 py-4 text-center" id="videoSpotLightThumbnailBox_${rowIndex}">`;
       src += `<div class="image-wrapper"><img class="spotlight-image" src="" alt="${homeData[i]["kind"]}" /></div>`;
       src += `</div>`;
@@ -249,12 +296,14 @@ async function renderHomeScreen() {
       src += `<div class="videospotlight-text-box" id="videoSpotLightTextBox_${rowIndex}" style="display:grid;place-items: ${homeData[i]["data"]["alignment"]}">`;
       // src += `<p>${homeData[i]["data"]["label"]["raw_data"]}</p><p>${homeData[i]["data"]["title"]["raw_data"]}</p>`;
       src += `</div>`;
-      src += `</div></div></div>`;
+      src += `</div></div></div></div>`;
       await getVideoSpotLight(
         homeData[i]["data"]["video_id"],
         `row_${rowIndex}`,
         rowIndex
       );
+
+      rowIndex++;
     }
 
     if (homeData[i]["kind"] === "imageAndText") {
@@ -284,13 +333,15 @@ async function renderHomeScreen() {
       src += `<div class="button-container py-4 text-${homeData[i]["data"]["alignment"]}" id="imageAndText_${i}">`;
       src += `<div id="imageTextButton" tabindex="${rowIndex}" class="banner-button primary_cta"  style="font-size: ${homeData[i]["data"]["cta"]["font_size"]}">${homeData[i]["data"]["cta"]["text"]}</div>`;
       src += `</div></div></div></div>`;
+
+      rowIndex++;
     }
 
     if (homeData[i]["kind"] === "playlist") {
-      src += `<div class="row playlist-container" style="${containerCss}" id="row_${rowIndex}">`;
+      src += `<div class="row playlist-container" id="row_${rowIndex}" style="${containerCss}" data-row-kind="${homeData[i]["kind"]}"><div class="main-content-box">`;
       src += `<h3 class="playlist-row-heading" id="playlistTitle_${rowIndex}">Video Playlist</h3>`;
       src += `<div class="col-sm-12 p-0 d-flex align-items-center playlist-item-container" id="playlist_row_${rowIndex}">`;
-      src += `</div></div>`;
+      src += `</div></div></div>`;
 
       await getVideoPlayList(
         homeData[i]["playlist"]["_id"],
@@ -298,13 +349,15 @@ async function renderHomeScreen() {
         rowIndex
       );
       playlistContainer = `playlist_row_${rowIndex}`;
+
+      rowIndex++;
     }
 
     // if (i === len - 1 && homeData[0]["kind"] === "heroBanner") {
     //   src += `</div>`;
     // }
 
-    rowIndex++;
+    // rowIndex++;
   }
   src += `</div>`;
   if (page_index == 5) document.getElementById("pageContainer").innerHTML = src;

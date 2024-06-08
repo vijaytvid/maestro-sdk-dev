@@ -8,10 +8,21 @@ function load_player(videoData) {
     preload: "auto",
     fluid: true,
     aspectRatio: "16:9",
+    controlBar: {
+      skipButtons: {
+        forward: 5,
+        backward: 10,
+      },
+    },
   };
+
+  let url =
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
 
   player = videojs("maestroPlayer", options, function onPlayerReady() {
     videojs.log("Your player is ready!");
+    document.getElementsByClassName("vjs-control-bar")[0].style.height =
+      "8.813rem";
 
     // In this context, `this` is the player that was created by Video.js.
     //   this.play();
@@ -56,13 +67,11 @@ function load_player(videoData) {
 
   if (videoData !== null && videoData !== undefined) {
     videoType =
-      videoData.url.indexOf(".m3u8") > -1
-        ? "application/x-mpegURL"
-        : "video/mp4";
+      url.indexOf(".m3u8") > -1 ? "application/x-mpegURL" : "video/mp4";
   }
 
   player.src({
-    src: videoData.url,
+    src: url,
     type: videoType,
     withCredentials: false,
   });

@@ -79,23 +79,23 @@ XPU8q5DlGw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fcss%2Fmain.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>cpqjThfjLiN4LZ4KtvvCIgTO7442QqtMUQKTGXVSN6BuxkbTj78B3RndtpksNaI/3rFvffFmhpsb
-5xBn3w45nw==</DigestValue>
+<DigestValue>3mlbmXMCmunAzQgUdMk6sryr7kgfvzZ5Ehh8/ndud1Z3CeqoF0M1Z9l9BiRtLtxi6WDoYbDpItJQ
+9zs5cFqyng==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.api.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>joNOzTlN2vhs9E8tQf7KLJTb7KcJoEKH778CZIS3o38/xIWB7MlP6ZpprN4FpCimT7982QujT+tX
-P/S4uZJ+pg==</DigestValue>
+<DigestValue>LsRkMmrWntkTbQ/E4XZudt5YK3bqORIF5wwcOfaDNvMhy2AEyvJyIy/ZJCRX1XLLqlVOcwEZO9CH
+xtGZhmkiUw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.common-navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>sL4qrKX7Mqv7zfkRhji9gycWiBUfBVMwg2IRlgnsFQsOMbMWFBKzIn/dVSK9Kh74zOXtEcI6imdF
-x4LU6gU38A==</DigestValue>
+<DigestValue>XIjnpP3JedmCuUU/vQuZXKdeYY8cCKtm/IIqxra1s9iUzUomGEtnatd7ZqPm4KXjdTsqwLIPOTkQ
+86mxfJfsCQ==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.config.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>3jEnb7j1Q/ZX4mMzIfCB301r93gtKo/KuySTlKRavhgM04Sw1yjqAV5hblB8vYxGti3xGGpWqik0
-7wRPhLSSYw==</DigestValue>
+<DigestValue>bWpRnLRkWbOy8aCSI63r4K/3e8EhjPNZiXFd7JVJj77J5BUUNVQS0CQ2PLHqdnPl7CLYgm4yt6Xu
+4BUNMfjkxw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.fetch-instance.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -104,8 +104,8 @@ hpvZLP7vow==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.home.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>xCOHSry1GTRHoG7G4xyxxlNOjX2tqOgh5MvhC3wtriJtrZlA3xl/AtrTz0X9t03kJM0sQoIs8Kek
-Q+7WFDZvUQ==</DigestValue>
+<DigestValue>IkPL/IFZePUbE+KSNiUsfpdfoN34riQsfK5j3HG+BmnZZgUD0Ixze1yv8sYsPekthuYadi1q00MP
+wAVHkWHFaw==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -119,13 +119,13 @@ MQYd0H8/Fg==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.utils.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>CMEH4O2fSEDSpUilsI0eakfqWZHZuu9wvkEOcdDlzbW9W7NaUyAnso5BXSrq7R5rYKM9xVEgqV9h
-vP+EY0WXLg==</DigestValue>
+<DigestValue>MrKbHkdaVLu8lbIDTJ7ZsqxEhOIMHyuOxky0u4UwmxcA2znfOY8vFBgJmqP+69D2dkc0sLuYl3bs
+0yzG3sCO2g==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fjs%2Fm.video-player.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>yUPdqRlod3WTPfX413eFwdFc9TwdcmWMr4kHZAujyG4imTaCNakBS+KabKJXVQezqgFH24y6l7sh
-yk32s++XTQ==</DigestValue>
+<DigestValue>qrXCsrT8MBXVSn4RlW5G1QeIegPjM14fIq5wh1rtgCahFg9OWes43oFU2FVTaJxumsAhnUFgs+u+
+d8YM50+21A==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Flib%2Fbootstrap%2Fcss%2Fbootstrap-grid.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -429,8 +429,8 @@ terjxTrcVA==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fviews%2Fmain.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>dIIqDlSaVM2oHCJsK3hBaHwwA7pVcUjsMA2yyWjkPMPADWf83G4w8Q1ttDdgDCOpT2H1oRrdeeao
-Ts21fz7fFQ==</DigestValue>
+<DigestValue>h+x2YhBCW6Z7gakVsCEE1nu7U77ckrJLsJsvpoW/NcRvtfccuBAflgCuEOzhc3dcY/6754ZOh4qH
+ykPqZ6C0yA==</DigestValue>
 </Reference>
 <Reference URI="maestro-sdk%2Fviews%2Fvideo-player.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -447,11 +447,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Iash5KuVLZCifBLYF0DzqefCVVwCFPQ4xhogq3IZrkH8h9frSwKKcp6wnvZhZobsQiPit6iZMS7D
-s1rUYLWla7QYDrQIJft3IH6JoSNjw+rPzKiNGb+2/pg0MSiTRNXEJlSHzlUVzVpAsr+RoQ4deRmY
-6AVyeppBoiy8xT4QE6xMdZmMWe8T87Y/vay2fQzK0x2ielD4+Lc7Wh/teMANId5dGkIYH1QVkRTl
-iX0Xr8cD/PlmM1yQJqxVLPA303B53ucMpZEi+aDopKS92SDdIAeCupslunpLVEV0wfL8pUY1GQb3
-Kx9a/AJeJLC8V2OGRMfrtvchZutYPMTKQTvexQ==
+QXvGiyLfZDNarUeI+Ko4mamtykmnVFHiDHnTOiMX56C95cn+9JiRZPYvePrW87bYi/bOy0EwBqDg
+HwHfuRV4Rs1lzIL1I85xeEmz8xQZDtTduaS07l6VUaYasXhkGVyIsTq7SBEwKw//TrF4VUceMTui
+i/HTIZhflEPgaxwKXG+yxA3nYLyzzkAUUWsXtA5W+OvzEBOtHKrKYLe7p1+q2iRKSWzOGWOmt23m
+rMMw9sK5hMqLSvXPA9zRgvzPWieFpljaqxJ743zxsEJeysAB4mDAZaLE16rMSMn1a/MYP9Z5wieH
+pOUDR49LN0yLB9xQrWbQAAcTALumqswQZ8yCSw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

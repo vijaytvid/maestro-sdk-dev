@@ -111,7 +111,7 @@ body {
   line-height: 1;
   margin: 0;
   padding: 0;
-  background: #000000;
+  background: #12141a;
 }
 
 ol,
@@ -137,6 +137,23 @@ table {
   border-spacing: 0;
 }
 /* =================================Start of font family ============================= */
+:root {
+  --common-main-block-height: 442px;
+  --common-inner-block-width: 412px;
+  --common-inner-block-height: 231.75px;
+  --background-color: #12141a;
+  --theme-color: #7566ff;
+  --focus-color: #7566ff;
+  --text-color: #ffffff;
+  --colors-texts-text-100: rgba(243, 247, 255, 1);
+  --colors-accents-primary: rgba(117, 102, 255, 1);
+  --colors-surface-surface-01: rgba(8, 10, 12, 1);
+
+  --textfade-color: #919499;
+  --primary-color: #161616;
+  --secondary-color: #303030;
+  --button-color: #121212;
+}
 
 @font-face {
   font-family: "Manrope-Regular";
@@ -151,10 +168,6 @@ table {
 @font-face {
   font-family: "Manrope-Bold";
   src: url("../resources/fonts/Manrope-Bold.ttf") format("truetype");
-}
-
-.padding-left {
-  padding-left: 110px;
 }
 
 /* =================================End of font family ============================= */
@@ -194,7 +207,7 @@ table {
   position: absolute;
   align-items: center;
   justify-content: center;
-  background-color: #12141a;
+  background-color: var(--background-color);
 }
 
 .loader {
@@ -213,8 +226,8 @@ table {
   top: 0;
   left: 0;
   box-sizing: border-box;
-  border: 10px solid rgba(0, 0, 0, 0.1); /* Light border */
-  border-top-color: #7566ff; /* Main color */
+  border: 10px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--theme-color);
   animation: spin 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 
@@ -238,15 +251,16 @@ table {
 /* =================================Start of Common classes ============================= */
 
 .row_heading {
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 24px;
   padding: 0 0;
   height: 2rem;
+  margin: 10px 0;
 }
 
 .image-gallery-row-heading,
 .playlist-row-heading {
-  color: #ffffff;
+  color: var(--text-color);
   padding: 0 0;
   height: 2rem;
   font-family: "Manrope-Bold";
@@ -257,13 +271,22 @@ table {
   margin: 12px 0;
 }
 
+.shift-margin-left {
+  margin-left: 230px !important;
+}
+
+.main-content-box {
+  margin-left: 110px;
+  height: 100%;
+}
+
 /* =================================End of Common classes ============================= */
 
 /* =================================Start of sidebar-container Screen ============================= */
 
 .sidebar-container {
   width: 110px;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   bottom: 0;
@@ -271,6 +294,7 @@ table {
   position: fixed;
   background: transparent;
   overflow-y: hidden;
+  overflow-x: hidden;
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -278,9 +302,8 @@ table {
   z-index: 1;
 }
 
-/* Logo styles */
-.logo {
-  width: 110px;
+.profile {
+  width: 230px;
   text-align: center;
   height: 140px;
   position: relative;
@@ -290,91 +313,93 @@ table {
   align-items: center;
 }
 
-.logo li {
+.profile li {
   margin: 1.5rem 0;
 }
 
-.logo li img {
+.profile li img {
   width: 40px;
   height: 40px;
 }
 
-/* Menu styles */
 .menu-container {
-  width: 110px;
+  width: 230px;
   height: 723px;
   padding: 60px 0px 60px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  /* padding-left: 12px; */
+.toggle_menu {
+  width: 230px !important;
 }
 
-.menu li {
-  margin-bottom: 3rem;
-  display: flex;
-  justify-content: space-between;
-  width: 54px;
-  height: 54px;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.menu li svg {
-  fill: #9da0a6;
-  width: 40px;
-  height: 40px;
-}
-
-.menu li h3 {
-  display: none;
-  color: #919499;
-  font-size: 1.6rem;
-  position: fixed;
-  margin: 0.4rem 0 0rem 4rem;
-}
-
-.toggle_menu .menu li h3 {
-  display: block !important;
-}
-
-/* Settings styles */
 .settings {
-  width: 110px;
+  width: 230px;
   height: 217px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menu li.selected-manu svg {
-  fill: #ffffff;
+.menu .menu-box.selected-manu svg {
+  fill: var(--text-color);
 }
 
-.menu li:focus {
+.menu .menu-box:focus .menu-text {
+  color: var(--text-color);
+}
+
+.menu .menu-box:focus svg {
+  fill: var(--text-color);
+}
+
+.menu .menu-box:focus .menu-icon-bg {
   background: rgba(176, 169, 241, 0.2);
-  color: #ffffff;
 }
 
-.menu li:focus svg {
-  fill: #ffffff;
-}
-
-.menu li:focus h3 {
-  color: #ffffff;
-}
-
-.gradient-color {
-  z-index: 99;
+.menu-box {
   width: 100%;
-  background: linear-gradient(to right, #14141f, transparent) !important;
+  display: flex;
 }
+
+.menu-icon {
+  width: 110px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-icon-bg {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.menu-icon svg {
+  fill: #9da0a6;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+}
+
+.menu-text {
+  width: 120px;
+  display: block;
+  color: #919499;
+  font-size: 1.6rem;
+  position: relative;
+  padding: 18px 0 0 0;
+  text-align: left;
+}
+
+.menu-container .menu-box {
+  margin: 20px 0;
+}
+
 /* =================================End of sidebar-container Screen ============================= */
 /* =================================Start of top navbar container Screen ============================= */
 .header-container {
@@ -390,11 +415,11 @@ table {
   height: 152px;
   top: 0;
   left: 0;
-  background-color: #14141f;
+  background-color: var(--background-color);
 }
 
 .header-navigation {
-  color: #ffffff;
+  color: var(--text-color);
   justify-content: center;
   overflow-x: hidden;
   width: 1488.89px;
@@ -438,7 +463,7 @@ table {
   line-height: 38px;
   text-align: center;
   font-family: "Manrope-Bold";
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
   padding: 13px 40px 13px 40px;
   gap: 30px;
   border-radius: 50px;
@@ -450,7 +475,7 @@ table {
 }
 
 .nav-item:focus {
-  background-color: #6c5cf3 !important;
+  background-color: var(--theme-color) !important;
   /* border-radius: 50px; */
 }
 
@@ -485,7 +510,7 @@ table {
   background-image: url("../../assets/login_bg.png");
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .login-logo-box {
@@ -540,7 +565,7 @@ table {
   font-weight: 500;
   line-height: 52px;
   text-align: left;
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
 }
 
 .login-box {
@@ -621,7 +646,7 @@ table {
   font-weight: 500;
   line-height: 52px;
   text-align: center;
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
 }
 
 .qr-container {
@@ -646,7 +671,7 @@ table {
   width: 274.02px;
   height: 274.02px;
   border-radius: 20.92px;
-  background: #ffffff;
+  background: var(--text-color);
 }
 
 .qr-code-title {
@@ -673,7 +698,7 @@ table {
   top: 244px;
   left: 100px;
   opacity: 0.3;
-  border: 1px solid rgba(243, 247, 255, 1);
+  border: 1px solid var(--text-color);
 }
 
 .bottom-login-divider {
@@ -692,18 +717,8 @@ table {
   border: none;
   position: relative;
   /* border-bottom: 1px solid #f3f7ff; */
-  border-bottom: 1px solid rgba(243, 247, 255, 1);
+  border-bottom: 1px solid var(--text-color);
 }
-
-/* .bottom-login-divider hr {
-  top: -15px;
-  width: 75px;
-  opacity: 1;
-  border: none;
-  position: relative;
-  border-bottom: 1px solid #f3f7ff;
-  border-bottom: 1px solid rgba(243, 247, 255, 1);
-} */
 
 /* =================================End of login container Screen ============================= */
 
@@ -713,9 +728,11 @@ table {
   display: none;
   width: 100%;
   height: 100%;
-  position: inherit;
+  top: 0;
+  left: 0;
+  position: relative;
   overflow: hidden;
-  background-color: #14141f;
+  background-color: var(--background-color);
 }
 
 .home_container,
@@ -736,6 +753,7 @@ table {
 .home-screen-section {
   margin-top: 152px;
 }
+
 /* Start of banner CSS */
 .banner-container {
   width: 100%;
@@ -759,63 +777,56 @@ table {
 .banner-overlay {
   position: relative;
   top: 140px;
-  color: white;
-  padding: 10px;
+  color: var(--text-color);
+  padding: 155px 0 0 0;
   width: calc(100vw - 110px);
   height: 740px;
-  margin-left: 110px;
+  /* margin-left: 110px; */
 }
 
 .banner-content-detail-box {
   width: 1740px;
-  height: 252px;
+  height: 430px;
   gap: 30px;
 }
 
 .banner-content-detail-left,
 .banner-content-detail-right {
   width: 870px;
-  height: 252px;
+  max-height: 252px;
   gap: 12px;
 }
 
 .banner-content-title {
   width: 870px;
-  height: 144px;
+  max-height: 144px;
   gap: 0px;
-}
-
-.banner-content-title p {
   font-family: "Manrope-Regular";
   font-size: 64px;
   font-weight: 600;
   line-height: 72px;
   text-align: left;
-  /* background: rgba(243, 247, 255, 1); */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .banner-content-description {
   width: 870px;
   height: 96px;
   margin: 12px 0;
-}
-
-.banner-content-description p {
   font-family: "Manrope-Regular";
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
   text-align: left;
-  /* background: rgba(243, 247, 255, 1); */
-}
-.banner-content-description span {
-  font-size: 24px !important;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 32px;
   max-height: 96px;
 }
 
@@ -839,28 +850,32 @@ table {
   font-weight: 600;
   line-height: 32px;
   text-align: right;
-  color: #fff;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .banner-button.primary_cta {
   background: transparent;
-  border: 2px solid rgba(117, 102, 255, 1);
+  border: 2px solid var(--theme-color);
 }
 
 .banner-button.primary_cta:focus {
-  background: rgba(117, 102, 255, 1);
-  border: 2px solid rgba(117, 102, 255, 1);
+  background: var(--theme-color);
+  border: 2px solid var(--theme-color);
 }
 
 .banner-button.secondary_cta {
   background: transparent;
-  border: 2px solid rgba(243, 247, 255, 1);
+  border: 2px solid var(--text-color);
 }
 
 .banner-button.secondary_cta:focus {
   color: #000000;
-  background: rgba(243, 247, 255, 1);
-  border: 2px solid rgba(243, 247, 255, 1);
+  background: var(--text-color);
+  border: 2px solid var(--text-color);
 }
 
 .content-container {
@@ -870,38 +885,25 @@ table {
   position: absolute;
 }
 
-/* .banner-overlay p {
-  margin: 1rem 0;
-} */
-
-/* .banner-button {
-  width: 10rem;
-  height: 3rem;
-  margin: 0.4rem 0.8rem;
-  transition: transform 0.3s ease;
-} */
-
-/* .text-banner-container .col-sm-12:focus .banner-button {
-  transform: scale(1.1);
-} */
-
 /* End od banner CSS */
 
 /* Start of common item CSS  */
 
 .item-container {
   display: block;
-  width: 1810px;
-  height: 408px;
+  width: 100%;
+  height: 442px;
   margin: 0;
   padding: 20px 0;
-  margin-left: 110px;
+  /* margin-left: 110px; */
+  background: var(--colors-surface-surface-01);
 }
 
 .pages-row-slider {
-  width: 1810px;
+  width: 100%;
   position: relative;
   overflow-x: hidden;
+  height: 352px;
 }
 
 /* End of common item CSS  */
@@ -910,25 +912,26 @@ table {
 
 .image-gallery-container {
   display: block;
-  width: 1810px;
+  width: 100%;
   height: auto;
   margin: 0;
   padding: 20px 0;
-  margin-left: 110px;
+  /* margin-left: 110px; */
 }
 
 .image-gallery-slider {
   float: right;
   width: 100000000px;
-  position: relative;
+  position: absolute;
   overflow-x: hidden;
+  display: flex;
 }
 
 .image-gallery-container .col-sm-3 {
   /* width: 412px; */
   height: 100%;
   margin: 0.2rem 1.5rem 0.2rem 0rem;
-  color: #ffffff;
+  color: var(--text-color);
   display: grid;
 }
 
@@ -958,7 +961,7 @@ table {
   line-height: 16px;
   text-align: left;
   height: 16px;
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
 }
 
 .image-gallery-item-title {
@@ -968,7 +971,7 @@ table {
   line-height: 28px;
   text-align: left;
   height: 28px;
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
 }
 
 .image-gallery-item-desc {
@@ -986,7 +989,7 @@ table {
 }
 
 .image-gallery-item:focus .image-gallery-image-box img {
-  border: 4px solid #ffffff;
+  border: 4px solid var(--text-color);
 }
 
 /* End of image gallery CSS  */
@@ -994,51 +997,63 @@ table {
 /* Start of playlist CSS  */
 .playlist-container {
   display: block;
-  width: 1810px;
-  /* height: 408px; */
+  /* width: 1810px; */
+  height: 442px;
   margin: 0;
   padding: 20px 0;
-  margin-left: 110px;
+  /* margin-left: 110px; */
 }
 
 .playlist-container .col-sm-3 {
-  /* width: 412px; */
-  height: 100%;
+  width: 412px;
+  height: 352px;
   margin: 0.2rem 1.5rem 0.2rem 0rem;
-  color: #ffffff;
+  color: var(--text-color);
   display: grid;
+  padding: 12px;
 }
 
 .playlist-item-container {
   position: relative;
   overflow-x: hidden;
+  height: 352px;
 }
 
 .playlist-item {
-  height: 100%;
+  width: 376px;
+  height: 323.5px;
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
 }
 
 .playlist-image-box {
-  width: 100%;
-  height: 100%;
+  width: 376px;
+  height: 211px;
+  border-radius: 10px;
 }
 
 .playlist-item img {
-  border: 4px solid transparent;
+  /* border: 4px solid transparent; */
   border-radius: 10px;
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
 }
 
-.playlist-item:focus .playlist-image-box img {
-  border: 4px solid #ffffff;
+.outer-playlist-box:focus .playlist-item .playlist-image-box img {
+  /* border: 4px solid var(--text-color); */
+  /* width: 412px;
+  height: 321.75px; */
+  transform: scale(1.1, 1.1);
+  border: 1px solid var(--colors-accents-primary);
 }
 
 .playlist-item-details {
-  width: 372.8px;
-  height: 90px;
-  margin: 2px;
+  width: 372px;
+  height: 91px;
   display: grid;
+  gap: 6px;
 }
 
 .playlist-item-title {
@@ -1050,7 +1065,7 @@ table {
   font-weight: 600;
   line-height: 32px;
   text-align: left;
-  color: rgba(243, 247, 255, 1);
+  color: var(--colors-texts-text-100);
 }
 
 .playlist-item-desc {
@@ -1074,30 +1089,47 @@ table {
 }
 /* End of playlist CSS  */
 
-/* Start of text banner CSS  */
+/* Start of page block CSS  */
 
 .page-row-item {
   display: grid;
-  place-items: center;
-  align-items: center;
-  background: linear-gradient(-36deg, #12141a 50%, #1b1e26 50%);
+  /* place-items: center;
+  align-items: center; */
   border-radius: 5px;
   font-size: 30px;
   font-weight: 800;
-  background-color: #242438;
-  border: 4px solid transparent;
+  /* background-color: #242438; */
+  /* border: 4px solid transparent; */
+  width: 412px;
+  height: 352px;
+  padding: 10px;
+  margin: 0px 10px 0 10px;
 }
 
-.page-row-item .item-title {
+.page-row-item-inner {
+  background: linear-gradient(-36deg, #12141a 50%, #1b1e26 50%);
+  width: 376px;
+  height: 211.5px;
+  gap: 0px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease;
+  margin: 10px 0;
+}
+
+.page-row-item-inner .item-title {
   position: absolute;
   width: 412px;
   height: auto;
   text-align: center;
   line-height: 100px;
+  color: var(--text-color);
 }
 
-.page-row-item:focus {
-  border: 4px solid #ffffff;
+.page-row-item:focus .page-row-item-inner {
+  transform: scale(1.1, 1.1);
+  border: 1px solid var(--colors-accents-primary);
 }
 
 /* End of image gallery CSS  */
@@ -1105,28 +1137,26 @@ table {
 /* Start of text banner CSS  */
 
 .textbanner_content {
-  width: 1807px;
+  width: 1810px;
   height: 497px;
   /* left: 339.94px; */
   /* padding: 100px 60px 100px 60px; */
   /* margin: 10px; */
   background: rgba(18, 20, 26, 1);
-  border: 1px solid rgba(117, 102, 255, 1);
-  left: 108px;
+  /* border: 1px solid var(--theme-color); */
+  left: 110px;
   position: relative;
   display: grid;
   place-items: center;
-  margin: 1px;
+  /* margin: 1px; */
   /* top: 252.6px; */
 }
 
 .text-banner-overlay {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--text-color);
   padding: 10px;
   text-align: center;
-  /* padding: 200px 0; */
   float: left;
   text-align: left;
   width: 1691px;
@@ -1138,6 +1168,7 @@ table {
   display: grid;
   place-items: center;
 }
+
 .textbanner_sub_heading {
   width: 1691px;
   height: 28px;
@@ -1146,8 +1177,9 @@ table {
   font-weight: 600;
   line-height: 28px;
   text-align: center;
-  color: rgba(117, 102, 255, 1);
+  color: var(--theme-color);
 }
+
 .textbanner_title {
   width: 1691px;
   height: 52px;
@@ -1156,8 +1188,9 @@ table {
   font-weight: 500;
   line-height: 52px;
   text-align: center;
-  color: rgba(243, 247, 255, 1);
+  color: var(--text-color);
 }
+
 .textbanner_description {
   width: 1691px;
   height: 96px;
@@ -1169,12 +1202,23 @@ table {
   color: rgba(194, 197, 204, 1);
 }
 /* End of text banner CSS  */
+
 /* Start of video spot light CSS  */
 
 .videoSpotlight-container {
-  width: 1810px;
-  height: 582px;
-  margin-left: 110px;
+  width: 100%;
+  height: 598.44px;
+  /* margin-left: 110px; */
+  padding: 0;
+  margin: 0;
+}
+
+.videoSpotlight-inner-box {
+  width: 1750px;
+  height: 478.44px;
+  /* gap: 80px;
+  margin: 0 auto !important; */
+  margin: 0;
 }
 
 .videoSpotlight-container:first-child {
@@ -1189,7 +1233,7 @@ table {
   place-items: center;
   font-size: 2.2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-color);
   display: block;
   height: auto;
   text-align: left;
@@ -1215,9 +1259,12 @@ table {
 .image-wrapper {
   width: 100%;
   position: relative;
-  /* padding: 20px; */
   display: grid;
-  place-items: center;
+  width: 835px;
+  height: 478.44px;
+  padding: 10px;
+  border-radius: 10px;
+  aspect-ratio: 16/9;
 }
 
 .videospotlight-text-box:nth-child(2) {
@@ -1225,18 +1272,18 @@ table {
 }
 
 .videoSpotlight-container img {
-  width: 785px;
-  height: 441.56px;
   border-radius: 10px;
   display: block;
   position: relative;
+  width: 835px;
+  height: 478.44px;
   /* transition: transform 0.3s ease; */
 }
 
 .videoSpotlight-container .col-sm-12:focus .banner-button {
   /* transform: scale(1.1); */
-  background: rgba(117, 102, 255, 1);
-  border: 2px solid rgba(117, 102, 255, 1);
+  background: var(--theme-color);
+  border: 2px solid var(--theme-color);
 }
 /* End of video spot light CSS  */
 
@@ -1259,7 +1306,7 @@ table {
 
 .image-text-box {
   font-size: 2rem;
-  color: #ffffff;
+  color: var(--text-color);
   margin: 8px 0;
 }
 
@@ -1273,17 +1320,18 @@ table {
   padding: 0;
   margin: 0;
   position: relative;
-  left: 110px;
+  /* left: 110px; */
 }
 
 .imagetext-container .col-sm-12:focus .banner-button {
-  background: rgba(117, 102, 255, 1);
-  border: 2px solid rgba(117, 102, 255, 1);
+  background: var(--theme-color);
+  border: 2px solid var(--theme-color);
 }
 
 /* End of Image And Text CSS  */
 
 /* Start of video player CSS  */
+
 .video-player-section {
   width: 100vw;
   height: 100vh;
@@ -1292,11 +1340,13 @@ table {
   left: 0;
   z-index: 99999;
 }
+
 .video-player-container {
   display: none;
   width: 100vw;
   height: 100vh;
 }
+
 .video-player {
   width: 100vw;
   height: 100vh;
@@ -1306,4 +1356,9 @@ table {
   left: 0;
   z-index: 99999;
 }
+
+.vjs-control-bar {
+  height: 8.813rem;
+}
+
 /* End of video player CSS  */

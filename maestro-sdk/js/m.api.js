@@ -43,7 +43,7 @@ function getThemeData() {
 
 function getAppData() {
   console.log("getAppData");
-  let url = `${config.domain}/page/v2/content/id/${config.slug}`;
+  let url = `${config.domain}/${config.contentPath}/${config.defaultLandingPageId}`;
   fetch(url, {
     headers: {
       "x-maestro-client-id": config.clientId,
@@ -63,7 +63,7 @@ function getAppData() {
 
 function screenData() {
   console.log("getAppData");
-  let url = `${config.domain}/page/v2/content/id/${config.slug}`;
+  let url = `${config.domain}/${config.contentPath}/${config.defaultLandingPageId}`;
   fetch(url, {
     headers: {
       "x-maestro-client-id": config.clientId,
@@ -86,7 +86,7 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
 
   if (id === "") return;
 
-  let url = `${config.domain}/video/v3/${id}`;
+  let url = `${config.domain}/${config.videoPath}/${id}`;
 
   await fetch(url, {
     method: "GET",
@@ -120,7 +120,7 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
 
 function getTopNavigationData() {
   console.log("getTopNavigationData");
-  let url = `${config.domain}/navigation/v1/${app_data.channel.data.navigation_id}`;
+  let url = `${config.domain}/${config.pagePath}/${app_data.data.navigation_id}`;
   try {
     fetch(url, {
       headers: {
@@ -170,7 +170,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
   let i = 0;
   for (const list of data) {
     try {
-      let url = `${config.domain}/video/v3/${list.id}`;
+      let url = `${config.domain}/${config.videoPath}/${list.id}`;
       const response = await fetch(url, {
         headers: {
           "x-maestro-client-id": config.clientId,
@@ -180,7 +180,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
       const data = await response.json();
       console.log(url + " API Response:", data);
       playListArray.push(data);
-      src += `<div class="col-sm-3 focusable playlist-item ${
+      src += `<div class="col-sm-3 focusable outer-playlist-box ${
         !data.hasOwnProperty("thumbnail")
           ? "d-flex align-items-center justify-content-center"
           : ""
@@ -188,13 +188,13 @@ async function fetchData(playlistData, elementId, rowIndex) {
         rowIndex - 1
       }_0" data-sn-down="#row_item_${
         rowIndex + 1
-      }_0" tabindex="${rowIndex}" data-kind="playlist"> `;
-      src += `<div class="playlist-image-box" style="background-color: #242438">`;
+      }_0" tabindex="${rowIndex}" data-kind="playlist"><div class="playlist-item"> `;
+      src += `<div class="playlist-image-box">`;
       if (data["thumbnail"] !== undefined)
         src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
       else src += `<h3>${data["title"]}</h3>`;
       src += `</div><div class="playlist-item-details"><div class="playlist-item-title">${data["title"]}</div><div class="playlist-item-desc">${data["description"]}</div></div>`;
-      src += `</div>`;
+      src += `</div></div>`;
       // Process the API response as needed
     } catch (error) {
       console.error("Error fetching data:", error);

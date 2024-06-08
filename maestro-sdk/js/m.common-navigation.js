@@ -12,7 +12,7 @@ function manage_spatial_navigation(containerClass, containerId = "") {
       $("#headerNavigation").on("sn:enter-down", function (e) {
         console.log("headerNavigation enter...");
         nav_index = parseInt($("#" + e.target.id).attr("data-nav-index"));
-        config.slug = $("#" + e.target.id).attr("data-slug");
+        config.defaultLandingPageId = $("#" + e.target.id).attr("data-slug");
         resetTopNavigation(e.target.id);
         show_hide_screens("");
         screenData();
@@ -29,14 +29,15 @@ function manage_spatial_navigation(containerClass, containerId = "") {
         $("#menu").addClass("toggle_menu");
         $(".selected-manu").removeClass("selected-manu");
         $("#" + e.target.id).addClass("selected-manu");
+        shiftMainContainerContent(true);
       });
 
       $("#menu").on("sn:enter-down", function (e) {
         console.log("menu entered");
         menu_index = parseInt($("#" + e.target.id).attr("data-menu-index"));
         let slug = $("#" + e.target.id).attr("data-slug");
-        if (menu_index === 2 && config.slug !== slug) {
-          config.slug = $("#" + e.target.id).attr("data-slug");
+        if (menu_index === 2 && config.defaultLandingPageId !== slug) {
+          config.defaultLandingPageId = $("#" + e.target.id).attr("data-slug");
           resetTopNavigation(e.target.id);
           show_hide_screens("");
           screenData();
@@ -54,6 +55,7 @@ function manage_spatial_navigation(containerClass, containerId = "") {
         $("#menu").removeClass("toggle_menu");
         $(".selected-manu").removeClass("selected-manu");
         $("#menu_" + menu_index).addClass("selected-manu");
+        shiftMainContainerContent(false)
       });
 
       break;
@@ -292,7 +294,7 @@ function set_content_focus(row_num) {
       load_player(playListArray[index]);
     } else if (kind === "pagesRow") {
       console.log("pagesRow");
-      config.slug = $("#" + e.target.id).attr("data-slug");
+      config.defaultLandingPageId = $("#" + e.target.id).attr("data-slug");
       tab_index = page_index = 5;
       show_hide_screens("");
       screenData();
