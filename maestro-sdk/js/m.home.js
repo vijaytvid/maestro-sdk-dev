@@ -68,6 +68,8 @@ async function renderHomeScreen() {
     let containerCss = "",
       aspectRatio = "",
       bannerHeight = "",
+      aspectRatioClass = "",
+      minAspectRatioClass = "",
       style = "",
       id = "";
 
@@ -121,9 +123,6 @@ async function renderHomeScreen() {
       rowIndex++;
     }
 
-    // if (i === 0 && homeData[i]["kind"] === "heroBanner") {
-    //   src += `<div class="content-container">`;
-    // }
     if (i === 1 && homeData[0]["kind"] === "heroBanner")
       containerCss = " margin-top: -160px; ";
 
@@ -134,6 +133,9 @@ async function renderHomeScreen() {
         ""
       );
 
+      aspectRatioClass = "";
+      minAspectRatioClass = "";
+
       if (
         homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "") ===
         "16/9"
@@ -141,7 +143,8 @@ async function renderHomeScreen() {
         console.log(
           homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "")
         );
-        // containerCss += "height: 626px; ";
+        aspectRatioClass = "image-gallery-image-16ratio9";
+        minAspectRatioClass = "main-16ratio9";
       } else if (
         homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "") ===
         "2/3"
@@ -149,7 +152,8 @@ async function renderHomeScreen() {
         console.log(
           homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "")
         );
-        // containerCss += "height: 800px; ";
+        aspectRatioClass = "image-gallery-image-2ratio3";
+        minAspectRatioClass = "main-2ratio3";
       } else if (
         homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "") ===
         "1/1"
@@ -157,13 +161,17 @@ async function renderHomeScreen() {
         console.log(
           homeData[i]["data"]["aspect_ratio"]["desktop"].replace(/\s+/g, "")
         );
+        aspectRatioClass = "image-gallery-image-1ratio1";
+        minAspectRatioClass = "main-1ratio1";
       }
 
-      src += `<div class="row image-gallery-container my-4" id="row_${rowIndex}" style="${containerCss}"><div class="main-content-box" style="height: 740px;">`;
-      src += `<div class="image-gallery-row-heading">${stripHtmlTags(
+      src += `<div class="row image-gallery-container my-4" id="row_${rowIndex}" style="${containerCss}"><div class="main-content-box" style="height: 828px;">`;
+      src += `<div class="image-gallery-row-heading ">${stripHtmlTags(
         homeData[i]["data"]["title"]
       )}</div><div class="col-sm-12 d-flex image-gallery-slider">`;
+
       let imageGalleryData = homeData[i]["data"]["image_cards"];
+
       let imgLength = homeData[i]["data"]["image_cards"].length;
       for (let j = 0; j < imgLength; j++) {
         if (j === imgLength - 1) rightFocus = ` data-sn-right='null' `;
@@ -177,8 +185,8 @@ async function renderHomeScreen() {
 
         if (imageGalleryData[j]["image"]["desktop"]) defaultBg = "";
 
-        src += `<div class="col-sm-3 focusable image-gallery-item" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus}  ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
-        src += `<div class="image-gallery-image-box" ${defaultBg}>`;
+        src += `<div class="col-sm-3 focusable image-gallery-item ${minAspectRatioClass}" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus}  ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
+        src += `<div class="image-gallery-image-box ${aspectRatioClass}" ${defaultBg}>`;
         if (imageGalleryData[j]["image"]["desktop"])
           src += `<img src="${imageGalleryData[j]["image"]["desktop"]}" alt="Gallery" style="aspect-ratio: ${aspectRatio};" />`;
         else {
