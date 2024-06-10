@@ -75,11 +75,14 @@ async function renderHomeScreen() {
 
     id = ` id="row_item_${rowIndex}_0" `;
 
-    if (i === len - 1) downFocus = ` data-sn-down='null' `;
-    else downFocus = ` data-sn-down='#row_item_${rowIndex + 1}_0' `;
+    // if (i === len - 1) downFocus = ` data-sn-down='null' `;
+    // else downFocus = ` data-sn-down='#row_item_${rowIndex + 1}_0' `;
 
-    if (i > 0) upFocus = ` data-sn-up='#row_item_${rowIndex - 1}_0' `;
-    else if (i == 0) upFocus = ` data-sn-up='#nav_0' `;
+    downFocus = ` data-sn-down='null' `;
+    upFocus = ` data-sn-up='null' `;
+
+    // if (i > 0) upFocus = ` data-sn-up='#row_item_${rowIndex - 1}_0' `;
+    // else if (i == 0) upFocus = ` data-sn-up='#nav_0' `;
 
     console.log("downFocus ==>", downFocus);
     console.log("upFocus ==>", upFocus);
@@ -100,7 +103,9 @@ async function renderHomeScreen() {
         src += `<div class="col-sm-12 focusable" ${style} data-kind="${homeData[i]["kind"]}" id="row_item_${rowIndex}_0" ${upFocus}  tabindex="${rowIndex}" class="focusable" >`;
       } else src += `<div class="col-sm-12" ${style} >`;
       // src += `<img id="homeBanner" src="${homeData[i]["data"]["background"]["desktop"]}" alt="banner" />`;
-      src += `<div class="banner-content-container banner-overlay main-content-box" id="bannerButtonBox">`;
+      src += `<div class="banner-content-container banner-overlay main-content-box ${
+        i !== 0 && "p-0"
+      }" id="bannerButtonBox">`;
       src += `<div class="banner-content-detail-box"><div class="banner-content-detail-left"><div class="banner-content-title">${stripHtmlTags(
         homeData[i]["data"]["title"]["raw_data"]
       )}</div><div class="banner-content-description">${stripHtmlTags(
@@ -185,7 +190,7 @@ async function renderHomeScreen() {
 
         if (imageGalleryData[j]["image"]["desktop"]) defaultBg = "";
 
-        src += `<div class="col-sm-3 focusable image-gallery-item ${minAspectRatioClass}" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus}  ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
+        src += `<div class="col-sm-3 focusable scrollable-item image-gallery-item ${minAspectRatioClass}" id="row_item_${rowIndex}_${j}"  ${downFocus} ${upFocus}  ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" tabindex="${rowIndex}"> `;
         src += `<div class="image-gallery-image-box ${aspectRatioClass}" ${defaultBg}>`;
         if (imageGalleryData[j]["image"]["desktop"])
           src += `<img src="${imageGalleryData[j]["image"]["desktop"]}" alt="Gallery" style="aspect-ratio: ${aspectRatio};" />`;
@@ -233,7 +238,7 @@ async function renderHomeScreen() {
           leftFocus = ` data-sn-left='#row_item_${rowIndex}_${j - 1}' `;
         else if (j == 0) leftFocus = ``;
 
-        src += `<div class="col-sm-3 focusable page-row-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="${rowIndex}"> `;
+        src += `<div class="col-sm-3 focusable page-row-item scrollable-item" id="row_item_${rowIndex}_${j}" ${downFocus} ${upFocus} ${leftFocus} ${rightFocus} data-kind="${homeData[i]["kind"]}" data-slug="${pagesData[j]["page"]["slug"]}" tabindex="${rowIndex}"> `;
 
         if (pagesData[j]["image"]) {
           style = ` style="background-image: url(${pagesData[j]["image"]});background-size: cover;background-position: center;background-repeat: no-repeat;" `;
@@ -316,9 +321,11 @@ async function renderHomeScreen() {
 
     if (homeData[i]["kind"] === "imageAndText") {
       //flex-row-reverse, flex-column
-      src += `<div class="row imagetext-container" id="row_${rowIndex}" style="background-color: ${
+      src += `<div class="row imagetext-container" data-row-kind="${
+        homeData[i]["kind"]
+      }" id="row_${rowIndex}" style="background-color: ${
         homeData[i]["data"]["background"]["custom_color"]
-      }"><div class="col-sm-12 p-0 focusable d-flex ${
+      }"><div class="col-sm-12 imagetext-box focusable d-flex ${
         homeData[i]["data"]["layout"] === "left"
           ? "flex-wrap-reverse"
           : "flex-wrap"
@@ -334,7 +341,7 @@ async function renderHomeScreen() {
       src += `<div class="col-sm-6 flex-fill py-4 text-${
         homeData[i]["data"]["alignment"]
       }" id="imageAndText_${i}" style="padding-left: ${
-        homeData[i]["data"]["layout"] === "left" ? "80px" : "0"
+        homeData[i]["data"]["layout"] === "left" ? "5px" : "0"
       };">`;
       src += `<div class="image-text-box" style="float: ${homeData[i]["data"]["alignment"]}; text-align: ${homeData[i]["data"]["alignment"]};">${homeData[i]["data"]["title"]["raw_data"]} ${homeData[i]["data"]["description"]["raw_data"]}`;
       src += `</div>`;
@@ -348,7 +355,7 @@ async function renderHomeScreen() {
     if (homeData[i]["kind"] === "playlist") {
       src += `<div class="row playlist-container" id="row_${rowIndex}" style="${containerCss}" data-row-kind="${homeData[i]["kind"]}"><div class="main-content-box">`;
       src += `<h3 class="playlist-row-heading" id="playlistTitle_${rowIndex}">Video Playlist</h3>`;
-      src += `<div class="col-sm-12 p-0 d-flex align-items-center playlist-item-container" id="playlist_row_${rowIndex}">`;
+      src += `<div class="col-sm-12 d-flex align-items-center playlist-item-container" id="playlist_row_${rowIndex}">`;
       src += `</div></div></div>`;
 
       await getVideoPlayList(
@@ -378,6 +385,7 @@ async function renderHomeScreen() {
     if ($(".selected-nav").length > 0) SN.focus("headerNavigation");
     else if (SN.focus("row_0")) SN.focus("row_0");
     // else SN.focus("headerNavigation");
+    horizontalScrollableItems();
   }, 1000);
   // manage_spatial_navigation("banner_container");
   // manage_spatial_navigation("image_gallery_container");

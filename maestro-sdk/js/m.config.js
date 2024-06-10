@@ -52,5 +52,4 @@ window.config = {
   developerKey:
     "43e65da58fb6751c7321fb93af9196aabaf6b5b84608e4cb391e9c479356a900c4edf5f6dde66b2b148f3dfeb67e0f75",
   defaultLandingPageId: "63646ca984eb71002f9b2e31",
-  appData: {},
 };

@@ -180,15 +180,11 @@ async function fetchData(playlistData, elementId, rowIndex) {
       const data = await response.json();
       console.log(url + " API Response:", data);
       playListArray.push(data);
-      src += `<div class="col-sm-3 focusable outer-playlist-box ${
+      src += `<div class="col-sm-3 focusable scrollable-item outer-playlist-box ${
         !data.hasOwnProperty("thumbnail")
           ? "d-flex align-items-center justify-content-center"
           : ""
-      } " id="row_item_${rowIndex}_${i}" data-sn-up="#row_item_${
-        rowIndex - 1
-      }_0" data-sn-down="#row_item_${
-        rowIndex + 1
-      }_0" tabindex="${rowIndex}" data-kind="playlist"><div class="playlist-item"> `;
+      } " id="row_item_${rowIndex}_${i}" data-sn-up="null" data-sn-down="null" tabindex="${rowIndex}" data-kind="playlist"><div class="playlist-item"> `;
       src += `<div class="playlist-image-box">`;
       if (data["thumbnail"] !== undefined)
         src += `<img src="${data["thumbnail"]}" alt="${data["title"]}" />`;
@@ -205,6 +201,7 @@ async function fetchData(playlistData, elementId, rowIndex) {
   document.getElementById(`playlistTitle_${rowIndex}`).innerText =
     playlistData.title;
   document.getElementById(elementId).innerHTML = src;
+  horizontalScrollableItems();
 }
 
 function updateLoginScreen() {

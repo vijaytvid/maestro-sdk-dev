@@ -280,6 +280,16 @@ table {
   height: 100%;
 }
 
+.main-content-box .col-sm-3:first-child:focus {
+  transform: translateX(20%);
+  margin-right: 60px;
+}
+
+.main-content-box .col-sm-3:last-child:focus {
+  transform: translateX(-20%);
+  margin-left: 60px;
+}
+
 /* =================================End of Common classes ============================= */
 
 /* =================================Start of sidebar-container Screen ============================= */
@@ -921,11 +931,12 @@ table {
 
 .image-gallery-slider {
   float: right;
-  width: 100000000px;
+  /* width: 100000000px; */
+  scroll-behavior: smooth;
   position: absolute;
   overflow-x: hidden;
   display: flex;
-  padding: 24px 0;
+  padding: 1.4rem 2rem 1.4rem 2rem;
 }
 
 .image-gallery-container .col-sm-3 {
@@ -1072,6 +1083,7 @@ table {
   position: relative;
   overflow-x: hidden;
   height: 352px;
+  padding: 1.4rem 2rem 1.4rem 2rem;
 }
 
 .playlist-item {
@@ -1380,7 +1392,10 @@ table {
   padding: 0;
   margin: 0;
   position: relative;
-  /* left: 110px; */
+}
+
+.imagetext-box {
+  padding: 2rem 1rem 1rem 8rem;
 }
 
 .imagetext-container .col-sm-12:focus .banner-button {

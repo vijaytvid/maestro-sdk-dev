@@ -55,7 +55,7 @@ function manage_spatial_navigation(containerClass, containerId = "") {
         $("#menu").removeClass("toggle_menu");
         $(".selected-manu").removeClass("selected-manu");
         $("#menu_" + menu_index).addClass("selected-manu");
-        shiftMainContainerContent(false)
+        shiftMainContainerContent(false);
       });
 
       break;
@@ -266,9 +266,10 @@ function set_content_focus(row_num) {
     // });
 
     var $idString = e.target.id.split("_");
+    smoothScrollToRow(`row_${$idString[2]}`);
+
     // var $parent = $(`#row_${$idString[2]}`);
     // const rowElement = document.getElementById(`row_${$idString[2]}`);
-    smoothScrollToRow(`row_${$idString[2]}`);
     // rowElement.scrollIntoView({
     //   behavior: "smooth", // Smooth scroll
     //   block: "start", // Align to the top of homeContainer
