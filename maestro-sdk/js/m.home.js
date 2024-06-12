@@ -1,14 +1,17 @@
 var playlistContainer = "";
 
-function renderHeader() {
-  console.log("renderHeader", app_data, page_index);
-  document.getElementById("headerLogo").src = app_data.data.artwork.header.logo;
-  document.getElementById("headerLogo").alt =
-    app_data.data.artwork.header.logo_title;
-  // document.getElementById("headerTitle").innerText =
-  //   app_data.data.artwork.header.logo_title;
+function renderHome() {
+  console.log("renderHome", app_data, page_index);
+  let data = "";
+  if (app_data.hasOwnProperty("channel")) data = app_data.channel.data;
+  else data = app_data.data;
 
-  document.getElementById("loginLogo").src = app_data.data.artwork.header.logo;
+  document.getElementById("headerLogo").src = data.artwork.header.logo;
+  document.getElementById("headerLogo").alt = data.artwork.header.logo_title;
+  // document.getElementById("headerTitle").innerText =
+  //   data.artwork.header.logo_title;
+
+  document.getElementById("loginLogo").src = data.artwork.header.logo;
 
   getTopNavigationData();
   renderHomeScreen();
@@ -51,8 +54,13 @@ function renderTopNavigation(topNavData) {
 }
 
 async function renderHomeScreen() {
-  const homeData = app_data.data.landing_content;
+  let homeData = "";
+  if (app_data.hasOwnProperty("channel"))
+    homeData = app_data.channel.data.landing_content;
+  else homeData = app_data.data.landing_content;
+
   console.log("renderHomeScreen", homeData);
+
   let len = homeData.length;
   let src = "";
   var rowIndex = 0;

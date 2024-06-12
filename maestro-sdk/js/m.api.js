@@ -54,7 +54,7 @@ function getAppData() {
     .then((response) => {
       console.log(response);
       app_data = response;
-      renderHeader();
+      renderHome();
     })
     .catch((error) => {
       console.log(error);
@@ -120,7 +120,15 @@ async function getVideoSpotLight(id = "", elementId = "", rowNumber = "") {
 
 function getTopNavigationData() {
   console.log("getTopNavigationData");
-  let url = `${config.domain}/${config.pagePath}/${app_data.data.navigation_id}`;
+  let navigation_id = "";
+  let data = "";
+  if (app_data.hasOwnProperty("channel")) data = app_data.channel.data;
+  else data = app_data.data;
+
+  if (!data.hasOwnProperty("navigation_id")) return;
+  else navigation_id = data.navigation_id;
+
+  let url = `${config.domain}/${config.pagePath}/${navigation_id}`;
   try {
     fetch(url, {
       headers: {
@@ -154,7 +162,7 @@ async function getVideoPlayList(playlistId, elementId, rowIndex) {
         console.log(response);
         fetchData(response, elementId, rowIndex);
         // config.appData = response;
-        // renderHeader();
+        // renderHome();
       })
       .catch((error) => {
         console.log(error);

@@ -280,13 +280,13 @@ table {
   height: 100%;
 }
 
-.main-content-box .col-sm-3:first-child:focus {
+/* .main-content-box .col-sm-3:first-child:focus {
   transform: translateX(20%);
   margin-right: 60px;
-}
+} */
 
 .main-content-box .col-sm-3:last-child:focus {
-  transform: translateX(-20%);
+  transform: translateX(-25%);
   margin-left: 60px;
 }
 
@@ -461,7 +461,8 @@ table {
 .nav-items .nav-item {
   font-size: 2rem;
   font-weight: 700;
-  width: 202px;
+  min-width: 202px;
+  width: fit-content;
   height: 64px;
   display: flex;
   align-items: center;
@@ -848,7 +849,8 @@ table {
 }
 
 .banner-button {
-  width: 268px;
+  min-width: 268px;
+  width: fit-content;
   height: 64px;
   padding: 12px 40px 12px 40px;
   border-radius: 100px;
@@ -943,7 +945,7 @@ table {
   /* width: 336px;
   height: 687px; */
   gap: 30px;
-  margin: 0.2rem 1.5rem 0.2rem 0rem;
+  margin: 0.2rem 3.5rem 0.2rem 0rem;
   color: var(--text-color);
   display: grid;
 }
@@ -1175,7 +1177,7 @@ table {
   width: 412px;
   height: 352px;
   padding: 10px;
-  margin: 0px 10px 0 10px;
+  margin: 0px 1.5rem 0 10px;
 }
 
 .page-row-item-inner {
